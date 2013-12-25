@@ -1,4 +1,4 @@
-//document ready
+//document ready yay
 $(document).ready(function()
 {
 	/* check to see how fast someone is clicking*/

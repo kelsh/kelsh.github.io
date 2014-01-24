@@ -1,20 +1,24 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
+
 /*bleep*/
 html,body{
 height:100%;
 }
 
 body{
+overflow-x:hidden;
 margin:0;
 padding:0;
-background-image:url(gray_jean.png);
+/*background-image:url(gray_jean.png);*/
 background-repeat: repeat;
 }
 
 nav{
+padding-top:1em;
 background-color:black;
-height:8%;
+height:3%;
 width:100%;
-text-align: left;
+text-align: center;
 padding-left:5%;
 }
 
@@ -87,9 +91,10 @@ margin-top:1em;
 
 /*holds the skills section*/
 .circles{
-width:100%;
+margin:0 auto;
+width:95%;
+font-family: "Open Sans" "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 background-image:url(bedge_grunge.png);
-
 border: 1px solid #c5c5c5;
 -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
 -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
@@ -175,7 +180,7 @@ vertical-align:middle;
 font-size:2em;
 }
 
- /* Sorry I hate hand writing buttons.*/
+
 .btn{
 background: #b7d770;
 filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#cae285', endColorstr='#9fcb57'); /*  IE */
@@ -394,17 +399,12 @@ padding: .2em 1em .275em;
 .white {
 color: #606060;
 border: solid 1px #b7b7b7;
-background: #fff;
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
-background: -moz-linear-gradient(top,  #fff,  #ededed);
-filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+background-image:url("pw_maze_white_@2X.png");
 }
 
 .white:hover {
-background: #ededed;
-background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
-background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
-filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+color:rgb(33,66,180);
+border:1px solid white;
 }
 
 .white:active {
@@ -414,3 +414,40 @@ background: -moz-linear-gradient(top,  #ededed,  #fff);
 filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
 }
 
+
+
+/* animations */
+.gear1{
+	display:block;
+	max-height:100%;
+	width:auto;
+	-webkit-animation: gear 10s cubic-bezier(.25,.1,.30,.8) infinite;
+ 	 animation: gear 10.5s cubic-bezier(.1,.2,.30,.8) infinite;
+}
+.gear2{
+	display:block;
+	max-height:100%;
+	width:auto;
+	-webkit-animation: gear 10s cubic-bezier(.6,.2,.3,.2) infinite;
+ 	 animation: gear 10s cubic-bezier(.6,.2,.3,.2) infinite;
+}
+.gear3{
+	display:block;
+	max-height:100%;
+	width:auto;
+	-webkit-animation: gear 10s cubic-bezier(.5,.9,.1,.1) infinite;
+ 	 animation: gear 10s cubic-bezier(.5,.9,.1,.8) infinite;
+}
+
+
+@keyframes gear {
+		0% 		{ -webkit-transform: rotate(0deg); }
+	50% 	{ -webkit-transform: rotate(180deg); }
+	100% 	{ -webkit-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes gear {
+		0% 		{ -webkit-transform: rotate(0deg); }
+	50% 	{ -webkit-transform: rotate(180deg); }
+	100% 	{ -webkit-transform: rotate(360deg); }
+}

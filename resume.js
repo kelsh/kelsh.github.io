@@ -175,7 +175,7 @@ $(document).ready(function()
 		});$(".topNav3").click(function(){
 
 			$('html,body').stop().animate(
-				{ scrollTop: ($(".slidernav").offset().top)}
+				{ scrollTop: ($(".Works").offset().top)}
 				,500);
 			console.log("scrolling");
 		});$(".upTo").click(function(){
@@ -230,7 +230,7 @@ $(document).ready(function()
 
 	//check if an element is visible, then make the skills show.
 		$(window).scroll(function(){
-		if($('.slidernav').visible(true)){
+		if($('.circles').visible(true)){
 
 	 		var i = 0,
 	         delay = 5,

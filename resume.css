@@ -23,7 +23,7 @@ nav{
 box-sizing:border-box;
 -moz-box-sizing:border-box;
 padding-top:auto;
-background-color:black;
+background-color:rgb(0,0,0);
 height:3%;
 width:100%;
 text-align: center;
@@ -54,7 +54,7 @@ margin-top:30px;
 margin:0;
 padding:0;
 text-align:center;
-background-color:black;
+background-color:rgb(20,100,20);
 color:white;
 }
 .Works .inner{
@@ -207,18 +207,17 @@ margin-top:1em;
 
 /*holds the skills section*/
 .circles{
+border-radius:10px;
 margin:0 auto;
 width:95%;
 font-family: "Open Sans" "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-background-image:url(bedge_grunge.png);
+background-image:url(drawingtexture.jpg);
 border: 1px solid #c5c5c5;
 -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
 -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
 box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
 
 border-left:none;
-border-bottom-left-radius: 0px;
-border-top-left-radius:0px;
 
 display:block;
 }
@@ -338,10 +337,10 @@ margin-top:2em;
 }
 
 strong{
-color:#C4C4C4;
+color:rgb(200,200,200);
 font-size:7em;
 font-weight:bold;
-text-shadow:1px 1px 0px #333333, -1px -1px 0px #FFFFFF;
+text-shadow:1px 1px 0px rgb(0,0,0), -1px -1px 0px rgb(255,255,255);
 line-height:.5em;
 }
 
@@ -372,7 +371,7 @@ margin-top:2em;
 clear:both;
 height:3em;
 width:100%;
-background-color:black;
+background-color:rgb(0,0,0);
 bottom:0;
 color:white;
 font-size:2em;
@@ -380,14 +379,23 @@ text-align: center;
 }
 
 .upTo{
+border-radius:20px;
+padding:.3em;
+margin-top:.6em;
 height:auto;
-background-image:url(gray_jean.png);
+background-color:rgb(20,100,20);
 display:inline-block;
 font-size:1em;
-color:purple;
+color:white;
 text-align:center;
 border-bottom:1px solid black;
 overflow:hidden;
+}
+.upTo:hover{
+cursor:pointer;
+background-color:black;
+color:white;
+border:1px solid white;
 }
 
 ohSnap{
@@ -545,7 +553,7 @@ background-image:url("pw_maze_white_@2X.png");
 }
 
 .white:hover {
-color:rgb(33,66,180);
+color:rgb(0,0,0);
 border:1px solid white;
 }
 

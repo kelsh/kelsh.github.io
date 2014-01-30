@@ -164,25 +164,25 @@ $(document).ready(function()
 
 			$('html,body').stop().animate(
 				{ scrollTop: ($(".story").offset().top) -40 }
-				,500);
+				,400);
 			console.log("scrolling");
 		});$(".topNav2").click(function(){
 
 			$('html,body').stop().animate(
-				{ scrollTop: ($(".circles").offset().top) - 100}
-				,500);
+				{ scrollTop: ($(".circle").offset().top) - 100}
+				,400);
 			console.log("scrolling");
 		});$(".topNav3").click(function(){
 
 			$('html,body').stop().animate(
 				{ scrollTop: ($(".Works").offset().top)}
-				,500);
+				,400);
 			console.log("scrolling");
 		});$(".upTo").click(function(){
 
 			$('html,body').stop().animate(
 				{ scrollTop: 0}
-				,500);
+				,400);
 			console.log("scrolling");
 		});
 		// checking to see if element is visible

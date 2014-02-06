@@ -8,8 +8,16 @@
 
 </head>
 <body>
-<div class="parallax parallax1"  data-type="parallax" data-speed="20">
-	<div class="parallax parallax2"  data-type="parallax" data-speed="5"><div>
+<div class="container">
+    <div class="parallax parallax1"  data-type="parallax" data-speed="3">
+        <img src="tomato3.jpg"/>
+    </div>
+    <div class="parallax parallax2"  data-type="parallax" data-speed="2">
+    <img src="tomato2.jpg"/>
+    <div>
+    <div class="parallax parallax3"  data-type="parallax" data-speed="1">
+    <img src="tomato1.jpg"/>
+    <div>
 </div>
 
 
@@ -18,15 +26,19 @@
 <script>
 	 $(document).ready(function(){	
 
-      	$('div[data-type="parallax"]').each(function(){
-        var $bgobj = $(this);
+      	$('.parallax').each(function(){
+        var bgobj = $(this);
      
         $(window).scroll(function() {
-            var yPos = -($(window).scrollTop() / $bgobj.data('speed')); 
+            var yPos = ($(window).scrollTop() / bgobj.data('speed')+$(window).scrollTop())/4; 
+            console.log(yPos);
              
-            var coords = yPos+ yPos + 'px';
-            $bgobj.css({ backgroundPosition: coords });
-        	}); 
+            var coords = yPos+"px";
+            bgobj.find("img").css({marginTop: coords});
+
+            console.log($(".parallax3").find("img").css("marginTop")
+        	);
+        }); 
  		});   
     });
 </script>

@@ -1,25 +1,46 @@
 body{
 	margin:0;
 	padding:0;
-	height:100%;
+	height:2000px;
+	width:100%;
+}
+.container{
+	max-height:100%;
 	width:100%;
 }
 .parallax1{
-background-image:url("parallaxbackground.jpg");
-width:100%;
-height:2000px;
-background-attachment:fixed;
-background-size:cover;
-background-repeat:no-repeat;
 
+width:100%;
+height:100%;
 }
 .parallax2{
-background-image:url("gear.png");
-height:50%;
-width:50%;
-background-repeat: no-repeat;
-background-attachment:fixed;
-background-size:contain;
-background-color:white;
+	
+height:100%;
+width:100%;
 border-color:green;
+}
+.parallax3{
+	
+height:100%;
+width:100%;
+border-color:green;
+
+}
+.parallax1 img{
+	position:fixed;
+	margin-left:37.5%;
+max-width:25%;
+max-height:25%;
+}
+.parallax2 img{
+	position:fixed;
+	margin-left:37.5%;
+max-width:25%;
+max-height:25%;
+}
+.parallax3 img{
+	position:fixed;
+	margin-left:37.5%;
+max-width:25%;
+max-height:25%;
 }

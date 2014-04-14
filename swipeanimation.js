@@ -11,22 +11,8 @@ $(".arrow-right").click(function(){
 });
 //touch events
 
-var hammer_options = {};
-$("#ajax-wrapper")
-  .hammer(hammer_options)
-  .on("swipeleft", swipeAnimation_left());
-$("#ajax-wrapper")
-  .hammer(hammer_options)
-  .on("swiperight", swipeAnimation_right());
-
-// prevent default
-hammer.on("dragleft dragright swipeleft swiperight", function(ev) {
-  ev.gesture.preventDefault();
-  if(ev.type == 'dragleft' || ev.type == 'dragright') { return; }
-
-  // handle the swipes
-});
-
+$('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_left(); });
+$('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_right(); });
 
 
 

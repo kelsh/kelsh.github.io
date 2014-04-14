@@ -3,13 +3,23 @@ $(document).ready(function(){
 /*testing swipe with click */
 $(".arrow-left").click(function(){
 	console.log("arrow clicked")
-	swipeAnimation_left("$('#ajax-panel')");
+	swipeAnimation_left();
 });
 $(".arrow-right").click(function(){
 	console.log("arrow clicked")
-	swipeAnimation_right("$('#ajax-panel')");
+	swipeAnimation_right();
 });
 
+$("#ajax-panel").swipe({
+	swipe:function(left){
+		swipeAnimation_left();
+	}
+})
+$("#ajax-panel").swipe({
+	swipe:function(right){
+		swipeAnimation_right();
+	}
+})
 
 
 
@@ -18,13 +28,59 @@ $(".arrow-right").click(function(){
 
 
 
+//which pane to show
+var activePane = $(".active");
+var nextPane = " ";
+var n = 1;
+var np = 1;
+var evalPane = function(){
 
+	activePane = $(".active");
 
+	switch (activePane){
+		case activePane.hasClass("panel1"):
+		 n = 0;
+		break;
+		case activePane.hasClass("panel2"):
+		 n = 1;
+		break;
+		case activePane.hasClass("panel3"):
+		 n = 2;
+		break;
+		case activePane.hasClass("panel4"):
+		 n = 3;
+		break;
 
-var activePosition = $("#ajax-wrapper").index($(".ajax-panel"))
+	};
+	switch (np){
+		case np = 0:
+		 nextPane = $(".panel1");
+		break;
+		case np = 1:
+		 nextPane = $(".panel2");
+		break;
+		case np = 2:
+		 nextPane = $(".panel3");
+		break;
+		case np = 3:
+		 nextPane = $(".panel4");
+		break;
 
-console.log(activePosition);
+	};
 
+	if(n<0){
+		n = 0;
+	};
+	if(n>3){
+		n = 3;
+	};
+	if(np<0){
+		np = 0;
+	};
+	if(np>3){
+		np = 3;
+	};
+};
 
 
 
@@ -33,72 +89,71 @@ console.log(activePosition);
 
 
 //takes the div you want to animate as an arguement
-var swipeAnimation_left = function(div){
+var swipeAnimation_left = function(){
 
-	var theDiv = $(".ajax-panel");
+evalPane();
+
 	//checks to see if its currently animating
 	var inMotion = 1;
+	
+	if(n>=1){
+		np = np-1;
+		evalPane();
+		
+
+		activePane.addClass("swipeAnimating-left");
+		activePane.one(
+ 		 'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {
+   		activePane.removeClass("swipeAnimating-left active");
 
 
-	theDiv.addClass("swipeAnimating-left");
-	setTimeout(function(){
-		theDiv.removeClass("swipeAnimating-left");
-	},1000);
+   		nextPane.addClass("animating-in-left active");
+		nextPane.one(
+ 		'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {
+   		nextPane.removeClass("animating-in-left");
+ 		});
+		
 
-	$("#ajax-wrapper").append("<div class='new-ajax-panel'></div>");
+ 		});
+	n = n-1;	
+	console.log(activePane,nextPane);	
 
-	var checkAnimation = function(){
+	};
 
-/*check too see if animation is done */
-	if($(".new-ajax-panel"))
-	{
-		$(".new-ajax-panel").addClass("ajax-panel");
-		$(".new-ajax-panel").removeClass("new-ajax-panel");
-	}else{
-
-		setTimeout(function() {
-		checkAnimation();
-		},300);
-	}
-
-	checkAnimation();
-
-}
-
-}
+};
 
 //  check to see if animation is over to load the new content
 
-var swipeAnimation_right = function(div){
+var swipeAnimation_right = function(){
 
-	var theDiv = $("#ajax-panel");
+evalPane();
+
 	//checks to see if its currently animating
 	var inMotion = 1;
 
+	if(n<=2){
+		np = np+1;
+		evalPane();
 
-	theDiv.addClass("swipeAnimating-right");
+		activePane.addClass("swipeAnimating-right");
+		activePane.one(
+ 		 'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {
+   		 activePane.removeClass("swipeAnimating-right active");
+   		 nextPane.addClass("animating-in-right active");
+		 nextPane.one(
+ 		 'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {
+   		 nextPane.removeClass("animating-in-right");
+ 		 });
+			
+		
+ 		});
+ 		n = n+1;
+ 		console.log(activePane,nextPane);
+ 		
+	};
+		
 
-	$("ajax-wrapper").append("<div class='new-ajax-panel'></div>");
-
-	var checkAnimation = function(){
-
-/*check too see if animation is done */
-	if($(".new-ajax-panel").css("right") = 0)
-	{
-		$(".new-ajax-panel").addClass("ajax-panel");
-		$(".new-ajax-panel").removeClass("new-ajax-panel");
-	}else{
-
-		setTimeout(function() {
-		checkAnimation();
-		},300);
-	}
-
-	checkAnimation();
-
-}
-
-}
+};
 
 
 

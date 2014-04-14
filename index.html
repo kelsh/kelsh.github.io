@@ -88,9 +88,6 @@
 		#ajax-wrapper{
 			width:100%;
 		}
-		.ajax-panel{
-			display:none;
-		}
 		.title-wrapper{
 			margin-top:3em;
 			margin-bottom:3em;
@@ -121,98 +118,188 @@
 			width:80%;
 			text-align:center;
 			overflow-y:auto;
+			word-warp:break-word;
 		}
-		.swipeAnimating-left{
+		.ajax-panel{
+			display:none;
+		}
+		.active{
+			display:block;
+		}
+		.swipeAnimating-left, .animating-left{
 			/* moz*/
 			-moz-animation-name: swipeAnimating-left;
-			-moz-animation-duration: 1s;
+			-moz-animation-duration: .5s;
 			-moz-animation-timing-function: linear;
-			-moz-animation-delay: 2s;
-			-moz-animation-iteration-count: 1;
+			-moz-animation-delay: 0s;
+			
+			-moz-animation-direction: alternate;
 			-moz-animation-play-state: running;
 			/*webkit */
 			-webkit-animation-name: swipeAnimating-left;
-			-webkit-animation-duration: 1s;
+			-webkit-animation-duration: .5s;
 			-webkit-animation-timing-function: linear;
 			-webkit-animation-delay: 0s;
-			-webkit-animation-iteration-count:1;
+			
+			-webkit-animation-direction: alternate;
 			-webkit-animation-play-state: running;
 			/* Standard syntax */
 			animation-name: swipeAnimating-left;
-			animation-duration: 1s;
+			animation-duration: .5s;
 			animation-timing-function: linear;
-			animation-delay: 2s;
-			animation-iteration-count: 1;
+			animation-delay: 0s;
+			
+			animation-direction: alternate;
 			animation-play-state: running;
 		}
-		.swipeAnimating-right{
+		.swipeAnimating-right, .animating-right{
 			-moz-animation-name: swipeAnimating-right;
-			-moz-animation-duration: 5s;
+			-moz-animation-duration: .5s;
 			-moz-animation-timing-function: linear;
-			-moz-animation-delay: 2s;
-			-moz-animation-iteration-count: 1;
+			-moz-animation-delay: 0s;
+			
+			-moz-animation-direction: alternate;
 			-moz-animation-play-state: running;
 			/*webkit */
 			-webkit-animation-name: swipeAnimating-right;
-			-webkit-animation-duration: 5s;
+			-webkit-animation-duration: .5s;
 			-webkit-animation-timing-function: linear;
-			-webkit-animation-delay: 2s;
-			-webkit-animation-iteration-count: 1;
+			-webkit-animation-delay: 0s;
+			
+			-webkit-animation-direction: alternate;
 			-webkit-animation-play-state: running;
 			/* Standard syntax */
 			animation-name: swipeAnimating-right;
-			animation-duration: 5s;
+			animation-duration: .5s;
 			animation-timing-function: linear;
-			animation-delay: 2s;
-			animation-iteration-count: 1;
+			animation-delay: 0s;
+			
+			animation-direction: alternate;
+			animation-play-state: running;
+		}
+		.animating-in-left{
+			-moz-animation-name: animating-in-left;
+			-moz-animation-duration: .5s;
+			-moz-animation-timing-function: linear;
+			-moz-animation-delay: 0s;
+			-moz-animation-iteration-count: 1;
+			-moz-animation-play-state: running;
+			/*webkit */
+			-webkit-animation-name: animating-in-left;
+			-webkit-animation-duration: .5s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-delay: 0s;
+			
+			-webkit-animation-play-state: running;
+			/* Standard syntax */
+			animation-name: animating-in-left;
+			animation-duration: .5s;
+			animation-timing-function: linear;
+			animation-delay: 0s;
+			
+			animation-play-state: running;
+		}
+		.animating-in-right{
+			-moz-animation-name: animating-in-right;
+			-moz-animation-duration: .5s;
+			-moz-animation-timing-function: linear;
+			-moz-animation-delay: 0s;
+			
+			-moz-animation-play-state: running;
+			/*webkit */
+			-webkit-animation-name: animating-in-right;
+			-webkit-animation-duration: .5s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-delay: 0s;
+			
+			-webkit-animation-play-state: running;
+			/* Standard syntax */
+			animation-name: animating-in-right;
+			animation-duration: .5s;
+			animation-timing-function: linear;
+			animation-delay: 0s;
+			
 			animation-play-state: running;
 		}
 		/* animations */
+
+		/* animating out */
 		@-webkit-keyframes swipeAnimating-right
 		{
-		0%   {right:0;opacity:1;}
+		0%   {margin-left:0;opacity:1;}
 		100% {margin-left:100%;opacity:0;}
 		}
 
 		@keyframes swipeAnimating-right
 		{
-		0%   {right:0;opacity:1;}
+		0%   {margin-left:0;opacity:1;}
 		100% {margin-left:100%;opacity:0;}
 		}
 		@-moz-keyframes swipeAnimating-right
 		{
-		0%   {right:0;opacity:1;}
+		0%   {margin-left:0;opacity:1;}
 		100% {margin-left:100%;opacity:0;}
 		}
 
 		@-webkit-keyframes swipeAnimating-left
 		{
-		0%   {left:0;opacity:1;}
+		0%   {margin-right:0;opacity:1;}
 		100% {margin-right:100%;opacity:0;}
 		}
 
 		@keyframes swipeAnimating-left
 		{
-		0%   {left:0;opacity:1;}
+		0%   {margin-right:0;opacity:1;}
 		100% {margin-right:100%;opacity:0;}
 		}
 		@-moz-keyframes swipeAnimating-right
 		{
-		0%   {left:0;opacity:1;}
+		0%   {margin-right:0;opacity:1;}
 		100% {margin-right:100%;opacity:0;}
 		}
 
-		.active-panel{
-			display:block;
+		/*animating in*/
+		@-webkit-keyframes animating-in-left
+		{
+		0%   {margin-left:100%;opacity:0;}
+		100% {margin-left:0;opacity:1;}
 		}
+
+		@keyframes animating-in-left
+		{
+		0%   {margin-left:100%;opacity:0;}
+		100% {margin-left:0;opacity:1;}
+		}
+		@-moz-keyframes animating-in-left
+		{
+		0%   {margin-left:100%;opacity:0;}
+		100% {margin-left:0;opacity:1;}
+		}
+
+		@-webkit-keyframes animating-in-right
+		{
+		0%   {margin-left:100%;opacity:0;}
+		100% {margin-left:0;opacity:1;}
+		}
+
+		@keyframes animating-in-right
+		{
+		0%   {margin-left:100%;opacity:0;}
+		100% {margin-left:0;opacity:1;}
+		}
+		@-moz-keyframes animating-in-right
+		{
+		0%   {margin-left:100%;opacity:0;}
+		100% {margin-left:0;opacity:1;}
+		}
+
 
 	</style>
 <!-- ***************************************end styles******************************************** -->
 
 <!-- ***************************************start js******************************************** -->
 	<script src="jquery-2.0.3.js"></script>
-	<script src="jgestures.min.js"></script>
-	<script src="jswipekinetic.min.js"></script>
+	<script src="touchswipe.js"></script>
 	<script src="swipeanimation.js"></script>
 
 
@@ -299,8 +386,7 @@
 		</div>
 	</div>
 	<div id="ajax-wrapper">
-
-		<div class="ajax-panel pane1 active-panel">
+		<div class="ajax-panel panel1 ">
 
 			<div class="title-wrapper">
 				<div class="panel-title"><p>Contentment,</p><p> delivered daily</p></div>
@@ -312,14 +398,14 @@
 			</div>
 
 			<div class="panel-text">
-				<p>At Kooshi, we firmly believe everyone deserves to eat well.  Deliciously well.  Nutritionally well.  In fact, awesomely well.</p>
+				<p>A111111111 111111111 111.</p>
 				
 				<p>So we look for only the freshest, most wholesome, locally grown, organic food.  Then our Cordon Bleu chefs custom make healthy and delicious meals. And deliver it right to your table.</p>
 			</div>
 
 		</div>
 
-				<div class="ajax-panel pane2">
+		<div class="ajax-panel panel2 active">
 
 			<div class="title-wrapper">
 				<div class="panel-title"><p>Contentment,</p><p> delivered daily</p></div>
@@ -331,14 +417,14 @@
 			</div>
 
 			<div class="panel-text">
-				<p>At Kooshi, we firmly believe everyone deserves to eat well.  Deliciously well.  Nutritionally well.  In fact, awesomely well.</p>
+				<p>A222222222222 222222222222 2222222222222222 2222222eat well.  Deliciously well.  Nutritionally well.  In fact, awesomely well.</p>
 				
-				<p>So we look for only the freshest, most wholesome, locally grown, organic food.  Then our Cordon Bleu chefs custom make healthy and delicious meals. And deliver it right to your table.</p>
+				<p>So we look for only td.  Then our Cordon Bhe freshest, most wholesome, locally grown, organic fooe healthy and delicious meals. And deliver it right to your table.</p>
 			</div>
 
 		</div>
 
-				<div class="ajax-panel pane3">
+		<div class="ajax-panel panel3">
 
 			<div class="title-wrapper">
 				<div class="panel-title"><p>Contentment,</p><p> delivered daily</p></div>
@@ -350,14 +436,14 @@
 			</div>
 
 			<div class="panel-text">
-				<p>At Kooshi, we firmly believe everyone deserves to eat well.  Deliciously well.  Nutritionally well.  In fact, awesomely well.</p>
+				<p>At Koo333 33333333333333 33333333333333 3333333itionally well.  In fact, awesomely well.</p>
 				
-				<p>So we look for only the freshest, most wholesome, locally grown, organic food.  Then our Cordon Bleu chefs custom make healthy and delicious meals. And deliver it right to your table.</p>
+				<p>So we look fhe freshest, most wholesome,he freshest, most wholesome, locally grown, organic foolicious meals. And deliver it right to your table.</p>
 			</div>
 
 		</div>
 
-				<div class="ajax-panel pane4">
+		<div class="ajax-panel panel4">
 
 			<div class="title-wrapper">
 				<div class="panel-title"><p>Contentment,</p><p> delivered daily</p></div>
@@ -369,9 +455,9 @@
 			</div>
 
 			<div class="panel-text">
-				<p>At Kooshi, we firmly believe everyone deserves to eat well.  Deliciously well.  Nutritionally well.  In fact, awesomely well.</p>
+				<p>At Kooshi,44444444 44444444444444 444444444 4444444, awesomely well.</p>
 				
-				<p>So we look for only the freshest, most wholesome, locally grown, organic food.  Then our Cordon Bleu chefs custom make healthy and delicious meals. And deliver it right to your table.</p>
+				<p>So we look for only the freshest, most ewrerweewrewrewrrdon Bleu chefs custom make healthy and delicious meals. And deliver it right to your table.</p>
 			</div>
 
 		</div>

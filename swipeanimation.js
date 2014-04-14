@@ -11,8 +11,8 @@ $(".arrow-right").click(function(){
 });
 //touch events
 
-$('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_left(); });
-$('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_right(); });
+$('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_right(); });
+$('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_left(); });
 
 
 

@@ -9,20 +9,23 @@ $(".arrow-right").click(function(){
 	console.log("arrow clicked")
 	swipeAnimation_right();
 });
+//touch events
 
-$("#ajax-panel").swipe({
-	swipe:function(left){
-		swipeAnimation_left();
-	}
-})
-$("#ajax-panel").swipe({
-	swipe:function(right){
-		swipeAnimation_right();
-	}
-})
+var hammer_options = {};
+$("#ajax-wrapper")
+  .hammer(hammer_options)
+  .on("swipeleft", swipeAnimation_left());
+$("#ajax-wrapper")
+  .hammer(hammer_options)
+  .on("swiperight", swipeAnimation_right());
 
+// prevent default
+hammer.on("dragleft dragright swipeleft swiperight", function(ev) {
+  ev.gesture.preventDefault();
+  if(ev.type == 'dragleft' || ev.type == 'dragright') { return; }
 
-
+  // handle the swipes
+});
 
 
 

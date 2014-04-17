@@ -20,8 +20,8 @@ $('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_left(); });
 //which pane to show
 var activePane = $(".active");
 var nextPane = " ";
-var n = 1;
-var np = 1;
+var n = 0;
+var np = 0;
 var evalPane = function(){
 
 	activePane = $(".active");
@@ -60,14 +60,14 @@ var evalPane = function(){
 	if(n<0){
 		n = 0;
 	};
-	if(n>3){
-		n = 3;
+	if(n>1){
+		n = 1;
 	};
 	if(np<0){
 		np = 0;
 	};
-	if(np>3){
-		np = 3;
+	if(np>1){
+		np = 1;
 	};
 };
 
@@ -85,7 +85,7 @@ evalPane();
 	//checks to see if its currently animating
 	var inMotion = 1;
 	
-	if(n>=1){
+	if(n===1){
 		np = np-1;
 		evalPane();
 		
@@ -120,7 +120,7 @@ evalPane();
 	//checks to see if its currently animating
 	var inMotion = 1;
 
-	if(n<=2){
+	if(n===0){
 		np = np+1;
 		evalPane();
 

@@ -55,7 +55,7 @@
 		}
 		#menu{
 			width:100%;
-			border-bottom:1px solid black;
+			
 		}
 		#menu-wrapper{
 			/*text-align: justify;*/
@@ -229,74 +229,146 @@
 		/* animating out */
 		@-webkit-keyframes swipeAnimating-right
 		{
-		0%   {margin-left:0;opacity:1;}
-		100% {margin-left:100%;opacity:0;}
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
 		}
 
 		@keyframes swipeAnimating-right
 		{
-		0%   {margin-left:0;opacity:1;}
-		100% {margin-left:100%;opacity:0;}
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
 		}
+
 		@-moz-keyframes swipeAnimating-right
 		{
-		0%   {margin-left:0;opacity:1;}
-		100% {margin-left:100%;opacity:0;}
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
 		}
 
 		@-webkit-keyframes swipeAnimating-left
 		{
-		0%   {margin-right:0;opacity:1;}
-		100% {margin-right:100%;opacity:0;}
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
 		}
 
 		@keyframes swipeAnimating-left
 		{
-		0%   {margin-right:0;opacity:1;}
-		100% {margin-right:100%;opacity:0;}
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
 		}
 		@-moz-keyframes swipeAnimating-right
 		{
-		0%   {margin-right:0;opacity:1;}
-		100% {margin-right:100%;opacity:0;}
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
 		}
 
 		/*animating in*/
 		@-webkit-keyframes animating-in-left
 		{
-		0%   {margin-left:100%;opacity:0;}
-		100% {margin-left:0;opacity:1;}
+		0%   {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
 		}
 
 		@keyframes animating-in-left
 		{
-		0%   {margin-left:100%;opacity:0;}
-		100% {margin-left:0;opacity:1;}
+		0%   {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
 		}
+
 		@-moz-keyframes animating-in-left
 		{
-		0%   {margin-left:100%;opacity:0;}
-		100% {margin-left:0;opacity:1;}
+		0%   {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
 		}
 
 		@-webkit-keyframes animating-in-right
 		{
-		0%   {margin-left:100%;opacity:0;}
-		100% {margin-left:0;opacity:1;}
+		0%   {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
 		}
 
 		@keyframes animating-in-right
 		{
-		0%   {margin-left:100%;opacity:0;}
-		100% {margin-left:0;opacity:1;}
+		0%   {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
 		}
+
 		@-moz-keyframes animating-in-right
 		{
-		0%   {margin-left:100%;opacity:0;}
-		100% {margin-left:0;opacity:1;}
+		0%   {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
 		}
 
-
+		/* button temporary */
+		.button {
+			width:80%;
+			background-color:#B284BE;
+			-webkit-border-radius: 25px;
+			-moz-border-radius: 25px;
+			border-radius: 25px;
+			margin: .6em auto;
+			border: 1px solid rgba(0,0,0,0.4) ;
+			box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.5),
+				0 0 1px 1px rgba(255,255,255,0.8),
+				0 0 0 6px rgba(0,0,0,0.06),
+				0 0 0 3px rgba(0,0,0,0.1);
+			cursor: pointer;
+		}	
+		.title {
+			padding:.2em;
+			text-align:center;
+			color: #fff;
+			text-shadow: 1px 1px rgba(0,0,0,0.2);
+			text-transform: uppercase;
+		}
 	</style>
 <!-- ***************************************end styles******************************************** -->
 
@@ -314,9 +386,9 @@
 
             var setBodyScale = function() {
                 var scaleSource = $body.width(),
-                    scaleFactor = 0.22,                     
+                    scaleFactor = 0.20,                     
                     maxScale = 110,
-                    minScale = 80; //Tweak these values to taste
+                    minScale = 60; //Tweak these values to taste
 
                 var fontSize = scaleSource * scaleFactor; //Multiply the width of the body by the scaling factor:
 
@@ -389,81 +461,46 @@
 		</div>
 	</div>
 	<div id="ajax-wrapper">
-		<div class="ajax-panel panel1 ">
+		<div class="ajax-panel panel1 active ">
 
 			<div class="title-wrapper">
-				<div class="panel-title"><p>Contentment,</p><p> delivered daily</p></div>
+				<div class="panel-title"><p>A SIMPLE RECIPE</p><p> FOR HAPPINESS.</p></div>
 			</div>
 
 			<div class="panel-picture">
 				<img class="arrow-left" src="arrow_left.png" /><img class="arrow-right" src="arrow_left.png" />
-				<img src="ROASTED-CHICKEN1.png"/>
+				<img src="home1.png"/>
 			</div>
 
 			<div class="panel-text">
-				<p>A111111111 111111111 111.</p>
 				
-				<p>So we look for only the freshest, most wholesome, locally grown, organic food.  Then our Cordon Bleu chefs custom make healthy and delicious meals. And deliver it right to your table.</p>
+				<p>At Kooshi, we firmly believe everyone deserves to eat well. Deliciously well. Nutritionally well. In fact, awesomely well.
+				</p><p>So we look for only the freshest, most wholesome, locally grown, organic food. Then our Cordon Bleu chefs custom make healthy and delicious meals. And deliver it right to your table.</p>
 			</div>
 
 		</div>
 
-		<div class="ajax-panel panel2 active">
+		<div class="ajax-panel panel2 ">
 
 			<div class="title-wrapper">
-				<div class="panel-title"><p>Contentment,</p><p> delivered daily</p></div>
+				<div class="panel-title"><p>Free to a</p><p>Good Home.</p></div>
 			</div>
 
 			<div class="panel-picture">
 				<img class="arrow-left" src="arrow_left.png" /><img class="arrow-right" src="arrow_left.png" />
-				<img src="ROASTED-CHICKEN1.png"/>
+				<img src="home2.png"/>
 			</div>
 
 			<div class="panel-text">
-				<p>A222222222222 222222222222 2222222222222222 2222222eat well.  Deliciously well.  Nutritionally well.  In fact, awesomely well.</p>
+				<p>There's only one way to find out how truely amazing our food is.And that's to eat it.</p>
 				
-				<p>So we look for only td.  Then our Cordon Bhe freshest, most wholesome, locally grown, organic fooe healthy and delicious meals. And deliver it right to your table.</p>
+				<p>So we'll give you a free breakfast, lunch and a snack.  Then we'll create a plan that's yours and yours alone.Because this is how you were meant to eat.Amazingly.</p>
 			</div>
-
+			<div class="button">
+			<div class="title">START YOUR FREE TRIAL</div>
+			</div>
 		</div>
 
-		<div class="ajax-panel panel3">
-
-			<div class="title-wrapper">
-				<div class="panel-title"><p>Contentment,</p><p> delivered daily</p></div>
-			</div>
-
-			<div class="panel-picture">
-				<img class="arrow-left" src="arrow_left.png" /><img class="arrow-right" src="arrow_left.png" />
-				<img src="ROASTED-CHICKEN1.png"/>
-			</div>
-
-			<div class="panel-text">
-				<p>At Koo333 33333333333333 33333333333333 3333333itionally well.  In fact, awesomely well.</p>
-				
-				<p>So we look fhe freshest, most wholesome,he freshest, most wholesome, locally grown, organic foolicious meals. And deliver it right to your table.</p>
-			</div>
-
-		</div>
-
-		<div class="ajax-panel panel4">
-
-			<div class="title-wrapper">
-				<div class="panel-title"><p>Contentment,</p><p> delivered daily</p></div>
-			</div>
-
-			<div class="panel-picture">
-				<img class="arrow-left" src="arrow_left.png" /><img class="arrow-right" src="arrow_left.png" />
-				<img src="ROASTED-CHICKEN1.png"/>
-			</div>
-
-			<div class="panel-text">
-				<p>At Kooshi,44444444 44444444444444 444444444 4444444, awesomely well.</p>
-				
-				<p>So we look for only the freshest, most ewrerweewrewrewrrdon Bleu chefs custom make healthy and delicious meals. And deliver it right to your table.</p>
-			</div>
-
-		</div>
 	</div>
 
 </body>

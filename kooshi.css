@@ -1,0 +1,427 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+		html,body{
+			font-family: 'Lato', sans-serif;
+			-webkit-transform: translateZ(0);
+		}
+		/*hacks for footer */
+		html {
+			height:100%;
+		}
+		body{
+			min-height:100%;
+			position: relative;
+			padding-bottom:20px;
+		}
+		h1,h2,h3,h4,h5 {
+			margin:0;
+		}
+		#logo{
+			margin:0 auto;
+			margin-bottom:.1em;
+			margin-top:1.2em;
+			margin-bottom:.5em;
+			display:block;
+			max-height:2em;
+			max-width:30%;
+			text-align:center;
+			vertical-align:middle;
+		}
+		#logo img{
+			max-height:100%;
+			max-width:100%;
+		}
+		 .arrow-left {
+		 	position:absolute;
+		 	vertical-align:middle;
+			float:left;
+			max-height:15%;
+			max-width:15%;
+			left:-30px;
+			top:43%;
+		}
+		 .arrow-right {
+		 	vertical-align:middle;
+			position:absolute;
+			max-height:15%;
+			max-width:15%;
+			right:-47px;
+			top:43%;
+			/* flip image */
+			-moz-transform: scaleX(-1);
+	        -o-transform: scaleX(-1);
+	        -webkit-transform: scaleX(-1);
+	        transform: scaleX(-1);
+	        filter: FlipH;
+	        -ms-filter: "FlipH";
+		}
+		 .arrow-left-program {
+		 	position:absolute;
+		 	vertical-align:middle;
+			float:left;
+
+			max-width:6%;
+			left:-30px;
+			top:0%;
+		}
+		 .arrow-right-program {
+		 	vertical-align:middle;
+			position:absolute;
+
+			max-width:6%;
+			right:-47px;
+			top:0%;
+			/* flip image */
+			-moz-transform: scaleX(-1);
+	        -o-transform: scaleX(-1);
+	        -webkit-transform: scaleX(-1);
+	        transform: scaleX(-1);
+	        filter: FlipH;
+	        -ms-filter: "FlipH";
+		}
+		#menu{
+			width:100%;
+			
+		}
+		#menu-wrapper{
+			/*text-align: justify;*/
+			display:block;
+			margin:0 auto;
+			padding:.2em;
+			width:90%;
+			text-align:center;
+			color:#bbb;
+			margin-bottom:.2em;
+		}
+		#menu .menu-button{
+			color:#bbb;
+			font-size:.9em;
+			text-align:center;
+			display:inline;
+			padding:5px;
+			letter-spacing:-.6px;
+			word-spacing:.6px; 
+			
+		}
+		#menu .menu-button:last-child{
+			border-right:none;
+		}
+	/*	.spacer{
+			display:inline-block;
+			width:2%;
+			text-align:center;
+			border-left:1px solid #bbb;
+			line-height:1em;
+		}
+	*/
+		#ajax-wrapper{
+			width:100%;
+			padding-bottom:20px;
+		}
+		.title-wrapper{
+			margin-top:3em;
+			margin-bottom:3em;
+			width:100%;
+			text-align:center;
+		}
+		.panel-title{
+			line-height:.1em;
+			margin:0 auto;
+			text-transform:uppercase;
+			font-size:2em;
+			width:80%;
+			color:#bbb;
+		}
+		.panel-picture{
+			position:relative;
+			width:60%;
+			margin:0 auto;
+			text-align:center;
+			vertical-align:middle;
+		}
+		.panel-picture img{
+			border-radius:100%;
+		}
+		.panel-text{
+			font-size:1.3em;
+			margin:0 auto;
+			width:80%;
+			text-align:center;
+			overflow-y:auto;
+			word-warp:break-word;
+		}
+		.program .panel-text{
+			text-align:justify;
+		}
+		.ajax-panel{
+			display:none;
+		}
+		.active{
+			display:block;
+		}
+		.swipeAnimating-left, .animating-left{
+			/* moz*/
+			-moz-animation-name: swipeAnimating-left;
+			-moz-animation-duration: .5s;
+			-moz-animation-timing-function: linear;
+			-moz-animation-delay: 0s;
+			
+			-moz-animation-direction: alternate;
+			-moz-animation-play-state: running;
+			/*webkit */
+			-webkit-animation-name: swipeAnimating-left;
+			-webkit-animation-duration: .5s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-delay: 0s;
+			
+			-webkit-animation-direction: alternate;
+			-webkit-animation-play-state: running;
+			/* Standard syntax */
+			animation-name: swipeAnimating-left;
+			animation-duration: .5s;
+			animation-timing-function: linear;
+			animation-delay: 0s;
+			
+			animation-direction: alternate;
+			animation-play-state: running;
+		}
+		.swipeAnimating-right, .animating-right{
+			-moz-animation-name: swipeAnimating-right;
+			-moz-animation-duration: .5s;
+			-moz-animation-timing-function: linear;
+			-moz-animation-delay: 0s;
+			
+			-moz-animation-direction: alternate;
+			-moz-animation-play-state: running;
+			/*webkit */
+			-webkit-animation-name: swipeAnimating-right;
+			-webkit-animation-duration: .5s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-delay: 0s;
+			
+			-webkit-animation-direction: alternate;
+			-webkit-animation-play-state: running;
+			/* Standard syntax */
+			animation-name: swipeAnimating-right;
+			animation-duration: .5s;
+			animation-timing-function: linear;
+			animation-delay: 0s;
+			
+			animation-direction: alternate;
+			animation-play-state: running;
+		}
+		.animating-in-left{
+			-moz-animation-name: animating-in-left;
+			-moz-animation-duration: .5s;
+			-moz-animation-timing-function: linear;
+			-moz-animation-delay: 0s;
+			-moz-animation-iteration-count: 1;
+			-moz-animation-play-state: running;
+			/*webkit */
+			-webkit-animation-name: animating-in-left;
+			-webkit-animation-duration: .5s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-delay: 0s;
+			
+			-webkit-animation-play-state: running;
+			/* Standard syntax */
+			animation-name: animating-in-left;
+			animation-duration: .5s;
+			animation-timing-function: linear;
+			animation-delay: 0s;
+			
+			animation-play-state: running;
+		}
+		.animating-in-right{
+			-moz-animation-name: animating-in-right;
+			-moz-animation-duration: .5s;
+			-moz-animation-timing-function: linear;
+			-moz-animation-delay: 0s;
+			
+			-moz-animation-play-state: running;
+			/*webkit */
+			-webkit-animation-name: animating-in-right;
+			-webkit-animation-duration: .5s;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-delay: 0s;
+			
+			-webkit-animation-play-state: running;
+			/* Standard syntax */
+			animation-name: animating-in-right;
+			animation-duration: .5s;
+			animation-timing-function: linear;
+			animation-delay: 0s;
+			
+			animation-play-state: running;
+		}
+		/* animations */
+
+		/* animating out */
+		@-webkit-keyframes swipeAnimating-right
+		{
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		}
+
+		@keyframes swipeAnimating-right
+		{
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		}
+
+		@-moz-keyframes swipeAnimating-right
+		{
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		}
+
+		@-webkit-keyframes swipeAnimating-left
+		{
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
+		}
+
+		@keyframes swipeAnimating-left
+		{
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
+		}
+		@-moz-keyframes swipeAnimating-right
+		{
+		0%   {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		100% {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		}
+
+		/*animating in*/
+		@-webkit-keyframes animating-in-left
+		{
+		0%   {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		}
+
+		@keyframes animating-in-left
+		{
+		0%   {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		}
+
+		@-moz-keyframes animating-in-left
+		{
+		0%   {transform:translateX(-100%);
+		-ms-transform:translateX(-100%); /* IE 9 */
+		-webkit-transform:translateX(-100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		}
+
+		@-webkit-keyframes animating-in-right
+		{
+		0%   {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		}
+
+		@keyframes animating-in-right
+		{
+		0%   {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		}
+
+		@-moz-keyframes animating-in-right
+		{
+		0%   {transform:translateX(100%);
+		-ms-transform:translateX(100%); /* IE 9 */
+		-webkit-transform:translateX(100%);}
+		100% {transform:translateX(0%);
+		-ms-transform:translateX(0%); /* IE 9 */
+		-webkit-transform:translateX(0%);}
+		}
+
+		/* button temporary */
+		.button {
+			width:80%;
+			background-color:#B284BE;
+			-webkit-border-radius: 25px;
+			-moz-border-radius: 25px;
+			border-radius: 25px;
+			margin: .6em auto;
+			border: 1px solid rgba(0,0,0,0.4) ;
+			box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.5),
+				0 0 1px 1px rgba(255,255,255,0.8),
+				0 0 0 6px rgba(0,0,0,0.06),
+				0 0 0 3px rgba(0,0,0,0.1);
+			cursor: pointer;
+		}	
+		.title {
+			padding:.2em;
+			text-align:center;
+			color: #fff;
+			text-shadow: 1px 1px rgba(0,0,0,0.2);
+			text-transform: uppercase;
+		}
+		.menu-trigger{
+			top:-10px;
+			right:20px;
+			position:absolute;
+			height:10%;
+			width:10%;
+		}
+		.menu-trigger img{
+			max-width:100%;
+			max-height:100%;
+		}
+		
+		.footer{
+			position:absolute;
+			background-color:black;
+			color:white;
+			font-size:.9em;
+			display:block;
+			bottom:0;
+			width:100%;
+			height:20px;
+		}
+		.footer .menu-button{
+			display:inline;
+			text-align: center;
+		}

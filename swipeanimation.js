@@ -9,13 +9,24 @@ $(".arrow-right").click(function(){
 	console.log("arrow clicked")
 	swipeAnimation_right();
 });
+/*testing swipe with click */
+$(".arrow-left-program").click(function(){
+	console.log("arrow clicked")
+	swipeAnimation_left();
+});
+$(".arrow-right-program").click(function(){
+	console.log("arrow clicked")
+	swipeAnimation_right();
+});
 //touch events
 
 $('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_right(); });
 $('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_left(); });
 
-
-
+var jPM = $.jPanelMenu({
+	openPosition:"160px"
+});
+jPM.on();
 
 //which pane to show
 var activePane = $(".active");

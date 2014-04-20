@@ -99,7 +99,7 @@ var evalPane = function(){
 
 
 //takes the div you want to animate as an arguement
-var swipeAnimation_left = function(){
+var swipeAnimation_right = function(){
 
 evalPane();
 
@@ -139,7 +139,7 @@ evalPane();
 
 //  check to see if animation is over to load the new content
 
-var swipeAnimation_right = function(){
+var swipeAnimation_left = function(){
 
 evalPane();
 

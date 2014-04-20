@@ -20,8 +20,8 @@ $(".arrow-right-program").click(function(){
 });
 //touch events
 
-$('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_right(); });
-$('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_left(); });
+$('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_right(); });
+$('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_left(); });
 // menu initate
 var jPM = $.jPanelMenu({
 	openPosition:"160px",
@@ -99,7 +99,7 @@ var evalPane = function(){
 
 
 //takes the div you want to animate as an arguement
-var swipeAnimation_right = function(){
+var swipeAnimation_left = function(){
 
 evalPane();
 
@@ -139,7 +139,7 @@ evalPane();
 
 //  check to see if animation is over to load the new content
 
-var swipeAnimation_left = function(){
+var swipeAnimation_right = function(){
 
 evalPane();
 

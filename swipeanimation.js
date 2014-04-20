@@ -22,11 +22,21 @@ $(".arrow-right-program").click(function(){
 
 $('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_right(); });
 $('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_left(); });
-
+// menu initate
 var jPM = $.jPanelMenu({
-	openPosition:"160px"
+	openPosition:"160px",
+	menu:"#menu",
+	trigger:".menu-trigger"
 });
 jPM.on();
+//detect which link is active
+var currenturl = window.location.href;
+  $("#menu-wrapper .menu-button a").each(function() {
+   var uurl = $(this).attr('href');
+   if($(this).attr('href') == currenturl){
+    $(this).addClass('where-you-are-main');
+    }
+  });
 
 //which pane to show
 var activePane = $(".active");
@@ -118,6 +128,11 @@ evalPane();
 	n = n-1;	
 	console.log(activePane,nextPane);	
 
+	//check nav to show to see where you are
+	$(".where-you-are").removeClass("where-you-are");
+	var subMenuSelector = ".submenu-wrapper .submenu-item:eq("+(n)+")";
+	console.log(subMenuSelector)
+	$(subMenuSelector).addClass("where-you-are");
 	};
 
 };
@@ -149,7 +164,12 @@ evalPane();
  		});
  		n = n+1;
  		console.log(activePane,nextPane);
- 		
+ 		//detect where you are in the submenu
+ 		$(".where-you-are").removeClass("where-you-are");
+ 		var subMenuSelector = ".submenu-wrapper .submenu-item:eq("+(n)+")";
+		console.log(subMenuSelector);
+		$(subMenuSelector).addClass("where-you-are");
+	
 	};
 		
 

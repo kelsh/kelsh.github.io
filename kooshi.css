@@ -192,7 +192,7 @@
 		.swipeAnimating-left, .animating-left{
 			/* moz*/
 			-moz-animation-name: swipeAnimating-left;
-			-moz-animation-duration: .5s;
+			-moz-animation-duration: .2s;
 			-moz-animation-timing-function: linear;
 			-moz-animation-delay: 0s;
 			
@@ -200,7 +200,7 @@
 			-moz-animation-play-state: running;
 			/*webkit */
 			-webkit-animation-name: swipeAnimating-left;
-			-webkit-animation-duration: .5s;
+			-webkit-animation-duration: .2s;
 			-webkit-animation-timing-function: linear;
 			-webkit-animation-delay: 0s;
 			
@@ -208,7 +208,7 @@
 			-webkit-animation-play-state: running;
 			/* Standard syntax */
 			animation-name: swipeAnimating-left;
-			animation-duration: .5s;
+			animation-duration: .2s;
 			animation-timing-function: linear;
 			animation-delay: 0s;
 			
@@ -217,7 +217,7 @@
 		}
 		.swipeAnimating-right, .animating-right{
 			-moz-animation-name: swipeAnimating-right;
-			-moz-animation-duration: .5s;
+			-moz-animation-duration: .2s;
 			-moz-animation-timing-function: linear;
 			-moz-animation-delay: 0s;
 			
@@ -225,7 +225,7 @@
 			-moz-animation-play-state: running;
 			/*webkit */
 			-webkit-animation-name: swipeAnimating-right;
-			-webkit-animation-duration: .5s;
+			-webkit-animation-duration: .2s;
 			-webkit-animation-timing-function: linear;
 			-webkit-animation-delay: 0s;
 			
@@ -233,7 +233,7 @@
 			-webkit-animation-play-state: running;
 			/* Standard syntax */
 			animation-name: swipeAnimating-right;
-			animation-duration: .5s;
+			animation-duration: .2s;
 			animation-timing-function: linear;
 			animation-delay: 0s;
 			
@@ -242,21 +242,21 @@
 		}
 		.animating-in-left{
 			-moz-animation-name: animating-in-left;
-			-moz-animation-duration: .5s;
+			-moz-animation-duration: .2s;
 			-moz-animation-timing-function: linear;
 			-moz-animation-delay: 0s;
 			-moz-animation-iteration-count: 1;
 			-moz-animation-play-state: running;
 			/*webkit */
 			-webkit-animation-name: animating-in-left;
-			-webkit-animation-duration: .5s;
+			-webkit-animation-duration: .2s;
 			-webkit-animation-timing-function: linear;
 			-webkit-animation-delay: 0s;
 			
 			-webkit-animation-play-state: running;
 			/* Standard syntax */
 			animation-name: animating-in-left;
-			animation-duration: .5s;
+			animation-duration: .2s;
 			animation-timing-function: linear;
 			animation-delay: 0s;
 			
@@ -264,21 +264,21 @@
 		}
 		.animating-in-right{
 			-moz-animation-name: animating-in-right;
-			-moz-animation-duration: .5s;
+			-moz-animation-duration: .2s;
 			-moz-animation-timing-function: linear;
 			-moz-animation-delay: 0s;
 			
 			-moz-animation-play-state: running;
 			/*webkit */
 			-webkit-animation-name: animating-in-right;
-			-webkit-animation-duration: .5s;
+			-webkit-animation-duration: .2s;
 			-webkit-animation-timing-function: linear;
 			-webkit-animation-delay: 0s;
 			
 			-webkit-animation-play-state: running;
 			/* Standard syntax */
 			animation-name: animating-in-right;
-			animation-duration: .5s;
+			animation-duration: .2s;
 			animation-timing-function: linear;
 			animation-delay: 0s;
 			

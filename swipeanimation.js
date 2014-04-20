@@ -20,8 +20,8 @@ $(".arrow-right-program").click(function(){
 });
 //touch events
 
-$('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_right(); });
-$('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_left(); });
+$('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_right(); });
+$('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_left(); });
 // menu initate
 var jPM = $.jPanelMenu({
 	openPosition:"160px",
@@ -117,10 +117,10 @@ evalPane();
    		activePane.removeClass("swipeAnimating-left active");
 
 
-   		nextPane.addClass("animating-in-left active");
+   		nextPane.addClass("animating-in-right active");
 		nextPane.one(
  		'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {
-   		nextPane.removeClass("animating-in-left");
+   		nextPane.removeClass("animating-in-right");
  		});
 		
 
@@ -154,10 +154,10 @@ evalPane();
 		activePane.one(
  		 'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {
    		 activePane.removeClass("swipeAnimating-right active");
-   		 nextPane.addClass("animating-in-right active");
+   		 nextPane.addClass("animating-in-left active");
 		 nextPane.one(
  		 'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {
-   		 nextPane.removeClass("animating-in-right");
+   		 nextPane.removeClass("animating-in-left");
  		 });
 			
 		

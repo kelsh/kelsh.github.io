@@ -114,7 +114,7 @@ evalPane();
 		activePane.addClass("swipeAnimating-right");
 		activePane.one(
  		 'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {
-   		activePane.removeClass("swipeAnimating-left active");
+   		activePane.removeClass("swipeAnimating-right active");
 
 
    		nextPane.addClass("animating-in-right active");
@@ -153,7 +153,7 @@ evalPane();
 		activePane.addClass("swipeAnimating-left");
 		activePane.one(
  		 'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {
-   		 activePane.removeClass("swipeAnimating-right active");
+   		 activePane.removeClass("swipeAnimating-left active");
    		 nextPane.addClass("animating-in-left active");
 		 nextPane.one(
  		 'webkitAnimationEnd oanimationend msAnimationEnd animationend',   function() {

@@ -242,21 +242,21 @@
 		}
 		.animating-in-left{
 			-moz-animation-name: animating-in-left;
-			-moz-animation-duration: .2s;
+			-moz-animation-duration: .4s;
 			-moz-animation-timing-function: linear;
 			-moz-animation-delay: 0s;
 			-moz-animation-iteration-count: 1;
 			-moz-animation-play-state: running;
 			/*webkit */
 			-webkit-animation-name: animating-in-left;
-			-webkit-animation-duration: .2s;
+			-webkit-animation-duration: .4s;
 			-webkit-animation-timing-function: linear;
 			-webkit-animation-delay: 0s;
 			
 			-webkit-animation-play-state: running;
 			/* Standard syntax */
 			animation-name: animating-in-left;
-			animation-duration: .2s;
+			animation-duration: .4s;
 			animation-timing-function: linear;
 			animation-delay: 0s;
 			
@@ -264,21 +264,21 @@
 		}
 		.animating-in-right{
 			-moz-animation-name: animating-in-right;
-			-moz-animation-duration: .2s;
+			-moz-animation-duration: .4s;
 			-moz-animation-timing-function: linear;
 			-moz-animation-delay: 0s;
 			
 			-moz-animation-play-state: running;
 			/*webkit */
 			-webkit-animation-name: animating-in-right;
-			-webkit-animation-duration: .2s;
+			-webkit-animation-duration: .4s;
 			-webkit-animation-timing-function: linear;
 			-webkit-animation-delay: 0s;
 			
 			-webkit-animation-play-state: running;
 			/* Standard syntax */
 			animation-name: animating-in-right;
-			animation-duration: .2s;
+			animation-duration: .4s;
 			animation-timing-function: linear;
 			animation-delay: 0s;
 			

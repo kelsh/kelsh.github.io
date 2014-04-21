@@ -162,6 +162,18 @@
 			width:80%;
 			color:#bbb;
 		}
+		
+		.program-panel-title{
+			line-height:1em;
+			margin:0 auto;
+			text-transform:uppercase;
+			font-size:2em;
+			width:80%;
+			color:#bbb;
+		}
+		.program-panel-title h1, .program-panel-title h4{
+			display:inline;
+		}
 		.panel-picture{
 			position:relative;
 			width:60%;
@@ -458,6 +470,53 @@
 		.where-you-are,.where-you-are-main{
 			color:black;
 		}
+		/* panel menu styles */
 		.jPanelMenu-panel{
 			z-index:-1 !important;
 		}
+		#jPanelMenu-menu{
+			background-color:#00A9DF;
+			color:white;
+		}
+		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button a{
+			color:white;
+			
+		}
+		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button {
+			color:white;
+			width:100%;
+			border-bottom: 1px solid white;
+			text-align:left;
+			margin-top:.4em;
+			margin-bottom:.4em;
+			padding:.5em;
+		}
+		#jPanelMenu-menu .panel-submenu-wrapper .panel-submenu-item{
+			color:white;
+			width:100%;
+			border-bottom: 1px solid white;
+			display:block;
+			text-align:left;
+			margin-top:.3em;
+			margin-bottom:.3em;
+			padding:.4em;
+			padding-left:1.4em;
+			display:none;
+			vertical-align:top;
+		}
+		#jPanelMenu-menu .panel-submenu-wrapper .panel-submenu-item:last-child{
+			border-bottom:none;
+		}
+		#the-panel-menu{
+		display:none;
+		}
+		.panel-arrow{
+			margin-left:1em;
+			width:1.4em;
+		}
+		.panel-arrow img{
+			max-height:30%;
+			max-width:30%;
+			vertical-align:text-bottom;
+		}
+

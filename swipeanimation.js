@@ -24,8 +24,8 @@ $('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_right(); });
 $('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_left(); });
 // menu initate
 var jPM = $.jPanelMenu({
-	openPosition:"160px",
-	menu:"#menu",
+	openPosition:"40%",
+	menu:"#the-panel-menu",
 	trigger:".menu-trigger"
 });
 jPM.on();
@@ -60,6 +60,9 @@ var evalPane = function(){
 		case activePane.hasClass("panel4"):
 		 n = 3;
 		break;
+		case activePane.hasClass("panel5"):
+		 n = 4;
+		break;
 
 	};
 	switch (np){
@@ -81,14 +84,14 @@ var evalPane = function(){
 	if(n<0){
 		n = 0;
 	};
-	if(n>1){
-		n = 1;
+	if(n>5){
+		n = 5;
 	};
 	if(np<0){
 		np = 0;
 	};
-	if(np>1){
-		np = 1;
+	if(np>5){
+		np = 5;
 	};
 };
 
@@ -106,7 +109,7 @@ evalPane();
 	//checks to see if its currently animating
 	var inMotion = 1;
 	
-	if(n===1){
+	if(n<=5){
 		np = np-1;
 		evalPane();
 		
@@ -146,7 +149,7 @@ evalPane();
 	//checks to see if its currently animating
 	var inMotion = 1;
 
-	if(n===0){
+	if(n>=0){
 		np = np+1;
 		evalPane();
 
@@ -176,6 +179,15 @@ evalPane();
 };
 
 
+
+/*panel menu animation */
+	$(".panel-menu-button ").click(function(){
+ 	
+ 	console.log("you clicked")
+	$(this).find(".panel-submenu-item").toggle();
+
+
+	});
 
 //end of document ready
 });

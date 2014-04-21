@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato);
 
 		html,body{
-			font-family: 'Lato', sans-serif;
+			font-family: 'Lato', helvetica;
 			-webkit-transform: translateZ(0);
 		}
 		/*hacks for footer */
@@ -442,8 +442,8 @@
 			text-transform: uppercase;
 		}
 		.menu-trigger{
-			top:-10px;
-			right:20px;
+			top:-8px;
+			left:15px;
 			position:absolute;
 			height:10%;
 			width:10%;
@@ -477,6 +477,8 @@
 		#jPanelMenu-menu{
 			background-color:#00A9DF;
 			color:white;
+			overflow-y:hidden;
+			overflow-x:hidden;
 		}
 		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button a{
 			color:white;
@@ -500,10 +502,11 @@
 			margin-top:.3em;
 			margin-bottom:.3em;
 			padding:.4em;
-			padding-left:1.4em;
+			padding-left:.1em;
 			display:none;
 			vertical-align:top;
 		}
+
 		#jPanelMenu-menu .panel-submenu-wrapper .panel-submenu-item:last-child{
 			border-bottom:none;
 		}
@@ -519,4 +522,16 @@
 			max-width:30%;
 			vertical-align:text-bottom;
 		}
-
+		.question{
+			margin-top:1em;
+			font-size:1.5em;
+		}
+		.answer{
+			margin-top:1em;
+			color:#bbb;
+			display:none;
+			font-size:1.2em;
+		}
+		.spacer{
+			margin-top:2em;
+		}

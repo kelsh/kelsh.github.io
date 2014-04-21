@@ -184,10 +184,17 @@ evalPane();
 	$(".panel-menu-button ").click(function(){
  	
  	console.log("you clicked")
-	$(this).find(".panel-submenu-item").toggle();
+	$(this).find( ".panel-submenu-item").toggle();
 
 
 	});
+/*qa*/
+$(".question ").click(function(){
+ 	
+ 	
+	$(this).find( ".answer").toggle();
 
+
+	});
 //end of document ready
 });

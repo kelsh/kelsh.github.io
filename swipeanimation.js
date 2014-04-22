@@ -36,7 +36,7 @@ var currenturl = window.location.href;
  console.log(currenturl);
   $("panel-menu-wrapper").children().each(function() {
   	
-   var uurl = $(this).attr('href');
+   var uurl = "http://kelsh.github.io"+ $(this).attr('href');
  	 console.log(uurl)
    if($(this).attr('href') == currenturl){
     $(this).addClass('where-you-are-main');

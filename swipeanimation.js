@@ -35,10 +35,11 @@ jPM.on();
 
 var filename = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
 console.log(filename)
-    $(".panel-submenu-wrapper").find('a').each(function(){
+    $("#jPanelMenu-menu").find('a').each(function(){
     	console.log(this.href.substr(this.href.lastIndexOf("/")+1))
     	if(this.href.substr(this.href.lastIndexOf("/")+1) === filename){
     		$(this).addClass("where-you-are-main");
+    		$(this).parent().find(".panel-submenu-item").toggle();
     	}
     });
 

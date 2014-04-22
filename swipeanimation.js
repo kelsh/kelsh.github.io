@@ -32,14 +32,16 @@ var jPM = $.jPanelMenu({
 });
 jPM.on();
 //detect which link is active
-$(function() {
-     var pgurl = window.location.href.substr(window.location.href
-.lastIndexOf("/")+1);
-     $("#panel-menu-wrapper").find("a").each(function(){
-          if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
-          $(this).addClass("where-you-are-main");
-     })
-});
+
+var filename = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+console.log(filename)
+    $(".panel-submenu-wrapper").find('a').each(function(){
+    	console.log(this.href.substr(this.href.lastIndexOf("/")+1))
+    	if(this.href.substr(this.href.lastIndexOf("/")+1) === filename){
+    		$(this).addClass("where-you-are-main");
+    	}
+    });
+
 
 //which pane to show
 var mx = $(".ajax-panel").length;

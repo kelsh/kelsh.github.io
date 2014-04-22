@@ -563,11 +563,14 @@
 		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .where-you-are-main,
 		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .where-you-are-main a,
 		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .panel-submenu-item .where-you-are-main,
-		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .panel-submenu-item .where-you-are-main a
+		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .panel-submenu-item .where-you-are-main a,
+		a.where-you-are-main .panel-submenu-item li,
+		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .where-you-are-main
 		{
-			color:#00A9DF;
+			color:#00A9DF !important;
 			
 		}
+
 		form{
 			font-size:1.5em;
 			text-align:left;

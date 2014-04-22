@@ -33,8 +33,9 @@ var jPM = $.jPanelMenu({
 jPM.on();
 //detect which link is active
 var currenturl = window.location.href;
-  $("#jPanelMenu-menu").each(function() {
+  $("#panel-menu-wrapper").each(function() {
    var uurl = $(this).attr('href');
+   console.log(currenturl,uurl)
    if($(this).attr('href') == currenturl){
     $(this).addClass('where-you-are-main');
     if($(".where-you-are-main").hasClass('panel-submenu-item')){

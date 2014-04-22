@@ -49,7 +49,7 @@
 		}
 		
 		#logoimg	{
-			max-height:150% ;
+			max-height:135% ;
 		}
 		.arrows{
 			position:absolute;
@@ -68,7 +68,7 @@
 			
 		}
 		 .arrow-right {
-		 	margin-left:20px;
+		 	margin-left:1.1em;
 		 	vertical-align:middle;
 			display:inline-block;
 			max-width:100%;
@@ -206,6 +206,22 @@
 		}
 		.active{
 			display:block;
+		}
+		.qapicture{
+			display:inline-block;
+			height:1em;
+			width:1em;
+			background-image:url("uplight64.png");
+			background-size:contain;
+			background-repeat: no-repeat;
+		}
+		.qapicture2{
+			display:inline-block;
+			height:1em;
+			width:1em;
+			background-image:url("downlight64.png");
+			background-size:contain;
+			background-repeat: no-repeat;
 		}
 		.swipeAnimating-left, .animating-left{
 			/* moz*/
@@ -428,7 +444,7 @@
 		/* button temporary */
 		.button {
 			width:80%;
-			background-color:#B284BE;
+			background-color:#00abdf;
 			-webkit-border-radius: 25px;
 			-moz-border-radius: 25px;
 			border-radius: 25px;
@@ -484,6 +500,7 @@
 			bottom:0;
 			width:100%;
 			height:20px;
+
 		}
 		.footer .menu-button{
 			display:inline;
@@ -505,6 +522,9 @@
 			color:black;
 			
 		}
+		#panel-menu-wrapper{
+			margin-top: 1.2em;
+		}
 		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button {
 			color:black;
 			width:100%;
@@ -514,6 +534,9 @@
 			margin-bottom:.2em;
 			padding:.2em;
 			padding-left:1em;
+		}
+		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button:first-child{
+			margin-top:0;
 		}
 		#jPanelMenu-menu .panel-submenu-wrapper .panel-submenu-item{
 			color:black;

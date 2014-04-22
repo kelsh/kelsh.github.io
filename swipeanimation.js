@@ -199,7 +199,11 @@ evalPane();
 /*qa*/
 $(".question ").click(function(){
  	
- 	
+ 	if($(this).children().hasClass("qapicture")){
+ 	$(this).children(".qapicture").toggleClass('qapicture qapicture2');
+ 	}else{
+ 	$(this).children(".qapicture2").toggleClass('qapicture2 qapicture');
+ 	}
 	$(this).find( ".answer").toggle();
 
 

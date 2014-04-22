@@ -32,20 +32,14 @@ var jPM = $.jPanelMenu({
 });
 jPM.on();
 //detect which link is active
-var currenturl = window.location.pathname;
- console.log(currenturl);
-  $("#panel-menu-wrapper").children().each(function() {
-  	
-   var uurl = $(this).attr('pathname');
- 	 console.log(uurl)
-   if($(this).attr('pathname') == currenturl){
-    $(this).addClass('where-you-are-main');
-    if($(".where-you-are-main").hasClass('panel-submenu-item')){
-    	$(this).parent().find(".panel-submenu-item").toggle();
-    };
-
-    }
-  });
+$(function() {
+     var pgurl = window.location.href.substr(window.location.href
+.lastIndexOf("/")+1);
+     $("#panel-menu-wrapper").find("a").each(function(){
+          if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+          $(this).addClass("where-you-are-main");
+     })
+});
 
 //which pane to show
 var mx = $(".ajax-panel").length;

@@ -24,46 +24,51 @@
 			text-decoration:none; 
 			color:#bbb;
 		}
-
+		ul{
+			margin:0;
+		}
 
 		#logo{
+			
 			margin:0 auto;
-			margin-bottom:.1em;
 			margin-top:1.2em;
 			margin-bottom:.5em;
 			display:block;
 			max-height:2em;
-			max-width:30%;
+			
 			text-align:center;
-			vertical-align:middle;
+			vertical-align:text-top;
+			
 		}
-		#logo img{
-			max-height:100%;
-			max-width:100%;
+		
+		#logoimg	{
+			max-height:150% ;
+		}
+		.arrows{
+			position:absolute;
+			right:5%;
+			height:2em;
+			top:0;
+			
 		}
 		 .arrow-left {
-		 	position:absolute;
+		 	
 		 	vertical-align:middle;
-			float:left;
-			max-height:15%;
-			max-width:15%;
-			left:-30px;
-			top:43%;
+			display:inline-block;
+			max-width:100%;
+			width:2em;
+			
+			
 		}
 		 .arrow-right {
+		 	margin-left:20px;
 		 	vertical-align:middle;
-			position:absolute;
-			max-height:15%;
-			max-width:15%;
-			right:-47px;
-			top:43%;
-			/* flip image */
-			-moz-transform: scaleX(-1);
-	        -o-transform: scaleX(-1);
-	        -webkit-transform: scaleX(-1);
-	        transform: scaleX(-1);
-	        filter: FlipH;
-	        -ms-filter: "FlipH";
+			display:inline-block;
+			max-width:100%;
+			width:2em;
+			
+			
+			
 		}
 		 .arrow-left-program {
 		 	position:absolute;
@@ -442,13 +447,29 @@
 			text-transform: uppercase;
 		}
 		.menu-trigger{
-			top:-8px;
-			left:15px;
 			position:absolute;
-			height:10%;
-			width:10%;
+			display:inline-block;
+			height:2em;
+			width:2em;
+			left:5%;
+			vertical-align:text-top;
+		}
+		.indicator{
+			height:2em;
+			width:2em;
+			left:15%;
+			font-size:1em;
+			position:absolute;
+			vertical-align:text-bottom;
+			display:inline-block;
+			
+		}
+		.indicator img{
+			
+			max-width:100%
 		}
 		.menu-trigger img{
+			
 			max-width:100%;
 			
 		}
@@ -467,36 +488,36 @@
 			display:inline;
 			text-align: center;
 		}
-		.where-you-are,.where-you-are-main{
-			color:black;
-		}
+		
+
 		/* panel menu styles */
 		.jPanelMenu-panel{
 			z-index:-1 !important;
 		}
 		#jPanelMenu-menu{
-			background-color:#00A9DF;
-			color:white;
+			background-color:#f5f4f2;
+			color:black;
 			overflow-y:hidden;
 			overflow-x:hidden;
 		}
 		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button a{
-			color:white;
+			color:black;
 			
 		}
 		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button {
-			color:white;
+			color:black;
 			width:100%;
-			border-bottom: 1px solid white;
+			font-size:1.4em;
 			text-align:left;
-			margin-top:.4em;
-			margin-bottom:.4em;
-			padding:.5em;
+			margin-top:.2em;
+			margin-bottom:.2em;
+			padding:.2em;
+			padding-left:1em;
 		}
 		#jPanelMenu-menu .panel-submenu-wrapper .panel-submenu-item{
-			color:white;
+			color:black;
 			width:100%;
-			border-bottom: 1px solid white;
+			
 			display:block;
 			text-align:left;
 			margin-top:.3em;
@@ -534,4 +555,29 @@
 		}
 		.spacer{
 			margin-top:2em;
+		}
+		.submenu{
+			display:none;
+		}
+		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .where-you-are-main,
+		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .where-you-are-main a,
+		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .panel-submenu-item .where-you-are-main,
+		#jPanelMenu-menu #panel-menu-wrapper .panel-menu-button .panel-submenu-item .where-you-are-main a
+		{
+			color:#00A9DF;
+			
+		}
+		form{
+			font-size:1.5em;
+			text-align:left;
+			width:80%;
+			margin:2em auto;
+		}
+		.formspace{
+			margin-top:1em;
+		}
+		input {
+		margin-top: -1px;
+  		vertical-align: middle;
+  		margin:.4em;
 		}

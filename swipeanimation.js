@@ -18,27 +18,34 @@ $(".arrow-right-program").click(function(){
 	console.log("arrow clicked")
 	swipeAnimation_right();
 });
+//position logo
+
 //touch events
 
 $('#ajax-wrapper').on('swipeleft', function(e) { swipeAnimation_right(); });
 $('#ajax-wrapper').on('swiperight', function(e) { swipeAnimation_left(); });
 // menu initate
 var jPM = $.jPanelMenu({
-	openPosition:"40%",
+	openPosition:"55%",
 	menu:"#the-panel-menu",
 	trigger:".menu-trigger"
 });
 jPM.on();
 //detect which link is active
 var currenturl = window.location.href;
-  $("#menu-wrapper .menu-button a").each(function() {
+  $("#jPanelMenu-menu").each(function() {
    var uurl = $(this).attr('href');
    if($(this).attr('href') == currenturl){
     $(this).addClass('where-you-are-main');
+    if($(".where-you-are-main").hasClass('panel-submenu-item')){
+    	$(this).parent().find(".panel-submenu-item").toggle();
+    };
+
     }
   });
 
 //which pane to show
+var mx = $(".ajax-panel").length;
 var activePane = $(".active");
 var nextPane = " ";
 var n = 0;
@@ -84,14 +91,14 @@ var evalPane = function(){
 	if(n<0){
 		n = 0;
 	};
-	if(n>5){
-		n = 5;
+	if(n>mx-1){
+		n = mx-1;
 	};
 	if(np<0){
 		np = 0;
 	};
-	if(np>5){
-		np = 5;
+	if(np>mx-1){
+		np = mx-1;
 	};
 };
 
@@ -109,7 +116,8 @@ evalPane();
 	//checks to see if its currently animating
 	var inMotion = 1;
 	
-	if(n<=5){
+	if(n>0){
+		console.log(mx-1)
 		np = np-1;
 		evalPane();
 		
@@ -133,7 +141,7 @@ evalPane();
 
 	//check nav to show to see where you are
 	$(".where-you-are").removeClass("where-you-are");
-	var subMenuSelector = ".submenu-wrapper .submenu-item:eq("+(n)+")";
+	var subMenuSelector = "#jPanelMenu-menu .panel-menu-button:eq("+(n)+")";
 	console.log(subMenuSelector)
 	$(subMenuSelector).addClass("where-you-are");
 	};
@@ -149,7 +157,7 @@ evalPane();
 	//checks to see if its currently animating
 	var inMotion = 1;
 
-	if(n>=0){
+	if(n<mx-1){
 		np = np+1;
 		evalPane();
 

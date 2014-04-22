@@ -87,7 +87,7 @@
 <body>
 
 	<div id="logo">
-		<div class="menu-trigger"><img src="images/nav.png"/></div><div class="indicator"><img src="images/samplemenu.png" /></div><img id="logoimg" src="logo.gif" />
+		<div class="menu-trigger"><img src="images/nav.png"/></div><div class="indicator"><img src="images/home.png" /></div><img id="logoimg" src="logo.gif" />
 		<div class="arrows">
 		<img class="arrow-left" src="images/left.png" /><img class="arrow-right" src="images/right.png" />
 		</div>
@@ -106,76 +106,35 @@
 	-->
 		<div class="submenu">
 				<div class="submenu-wrapper">
-				<div class="submenu-item ">breakfast</div>
+				<div class="submenu-item where-you-are">1</div>
 					|
-				<div class="submenu-item">lunch</div>
-				|
-				<div class="submenu-item">dinner</div>
-				|
-				<div class="submenu-item">snacks</div>
-				|
-				<div class="submenu-item where-you-are">dessert</div>
+				<div class="submenu-item">2</div>
 			</div>
 		</div>
 	</div>
 	<div id="ajax-wrapper">
-		<div class="ajax-panel panel1 active">
+		<div class="ajax-panel panel1 active ">
 
-			<div class="title-wrapper">
-				<div class="panel-title"><p>Sample Dessert</p></div>
-			</div>
-
-			<div class="panel-picture">
-				
-				<img src="program1.png"/>
-			</div>
-
-			<div class="panel-text">
-				
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			</div>
+			<form>
+				Choose your free trial plan:<br/><input type="radio" name="plan" value="plan1">plan1<input name="plan" type="radio" value="plan2">plan2<br/>
+				<div class="formspace"></div>
+				Do you have any food allergies?:<br/>No<input type="radio" name="allergies" value="no">Yes<input type="text" name="allergies">
+				<div class="nxt">continue</div>
 
 		</div>
+		<div class="ajax-panel panel2 ">
+				Name<input type="text" name="name"><br/>
+				age<input type="text" name="age"><br/>
+				gender<input type="radio" name="gender" value="male">male<input type="radio" name="gender" value="female">female<br/>
+				Email Address<input type="text" name="email"><br/>
+				Phone Number<input type="text" name="phone"><br/>
 
-		<div class="ajax-panel panel2">
-
-			<div class="title-wrapper">
-				<div class="panel-title"><p>Sample Dessert</p></div>
-			</div>
-
-			<div class="panel-picture">
-				
-				<img src="program2.png"/>
-			</div>
-
-			<div class="panel-text">
-				
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-			</div>
-
-
-		</div>
-
-		<div class="ajax-panel panel3 ">
-
-			<div class="title-wrapper">
-				<div class="panel-title"><p>Sample Dessert</p></div>
-			</div>
-
-			<div class="panel-picture">
-			
-				<img src="program3.png"/>
-			</div>
-
-			<div class="panel-text">
-				
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-			</div>
-
-			
-		</div>
-
+				<input type="submit">
 		
+			
+		</div>
+			</form>
+			
 	</div>
 	<footer>
 	<div class="footer">

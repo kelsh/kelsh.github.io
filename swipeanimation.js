@@ -32,13 +32,13 @@ var jPM = $.jPanelMenu({
 });
 jPM.on();
 //detect which link is active
-var currenturl = window.location.href;
+var currenturl = window.location.pathname;
  console.log(currenturl);
   $("panel-menu-wrapper").children().each(function() {
   	
-   var uurl = "http://kelsh.github.io"+ $(this).attr('href');
+   var uurl = $(this).attr('pathname');
  	 console.log(uurl)
-   if($(this).attr('href') == currenturl){
+   if($(this).attr('pathname') == currenturl){
     $(this).addClass('where-you-are-main');
     if($(".where-you-are-main").hasClass('panel-submenu-item')){
     	$(this).parent().find(".panel-submenu-item").toggle();

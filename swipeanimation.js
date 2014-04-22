@@ -34,7 +34,7 @@ jPM.on();
 //detect which link is active
 var currenturl = window.location.pathname;
  console.log(currenturl);
-  $("panel-menu-wrapper").children().each(function() {
+  $("#panel-menu-wrapper").children().each(function() {
   	
    var uurl = $(this).attr('pathname');
  	 console.log(uurl)

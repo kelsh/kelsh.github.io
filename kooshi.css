@@ -93,13 +93,7 @@
 			max-width:6%;
 			right:-47px;
 			top:0%;
-			/* flip image */
-			-moz-transform: scaleX(-1);
-	        -o-transform: scaleX(-1);
-	        -webkit-transform: scaleX(-1);
-	        transform: scaleX(-1);
-	        filter: FlipH;
-	        -ms-filter: "FlipH";
+			
 		}
 		#menu{
 			width:100%;

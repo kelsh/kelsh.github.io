@@ -5,6 +5,10 @@ $(".arrow-left").click(function(){
 	console.log("arrow clicked")
 	swipeAnimation_left();
 });
+$(".formbutton").click(function(){
+	console.log("arrow clicked")
+	swipeAnimation_right();
+});
 $(".arrow-right").click(function(){
 	console.log("arrow clicked")
 	swipeAnimation_right();
@@ -208,5 +212,6 @@ $(".question ").click(function(){
 
 
 	});
+
 //end of document ready
 });

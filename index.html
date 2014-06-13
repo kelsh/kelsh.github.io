@@ -8,198 +8,36 @@
 	<link rel="stylesheet" type="text/css" href="normalize.css">
 	<link rel="stylesheet" type="text/css" href="kooshi.css">
 	<style>
-		
+		<style>
+			#webzone img{
+				animation-duration: 1.5s;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+			}
+			@keyframes spin{
+				transform:rotate(360deg);
+				-ms-transform:rotate(360deg); /* IE 9 */
+				-webkit-transform:rotate(360deg); /* Opera, Chrome, and Safari */
+				
+			}
+			@-webkit-keyframes spin{
+				transform:rotate(360deg);
+				-ms-transform:rotate(360deg); /* IE 9 */
+				-webkit-transform:rotate(360deg); /* Opera, Chrome, and Safari */
+				
+			}
+		</style>
 	</style>
 <!-- ***************************************end styles******************************************** -->
 
 <!-- ***************************************start js******************************************** -->
 	<script src="jquery-2.0.3.js"></script>
-	<script src="jquery.mobile-events.min.js"></script>
-	<script src="swipeanimation.js"></script>
-	<script src="jpanelmenu.js"></script>
 
-
-	<!-- sets font size relative to body width -->
-	<script>
-	$( document ).ready( function() {
-            var $body = $('body'); //Cache  this for performance
-            var bodyheight= 0
-
-            var setBodyScale = function() {
-                var scaleSource = $body.width(),
-                    scaleFactor = 0.20,                     
-                    maxScale = 110,
-                    minScale = 60; //Tweak these values to taste
-
-                var fontSize = scaleSource * scaleFactor; //Multiply the width of the body by the scaling factor:
-
-                if (fontSize > maxScale) fontSize = maxScale;
-                if (fontSize < minScale) fontSize = minScale; //Enforce the minimum and maximums
-
-                $('body').css('font-size', fontSize + '%');
-                return bodyheight = scaleSource;
-            }
-
-            $(window).resize(function(){
-                setBodyScale();
-            });
-
-            //Fire it when the page first loads:
-            setBodyScale();
-
-
-        /* experimental, not working*/
-            /*var arap = $('#ajax-wrapper'); //Cache this for performance
-
-            var setArapScale = function() {
-                var scaleSource = arap.height(),
-                    scaleFactor = 0.00055,                     
-                    maxScale = .51,
-                    minScale = .5; //Tweak these values to taste
-
-                var fontSize = scaleSource * scaleFactor; //Multiply the width of the body by the scaling factor:
-
-                console.log(scaleSource);
-
-                if (fontSize > maxScale) fontSize = maxScale;
-                if (fontSize < minScale) fontSize = minScale; //Enforce the minimum and maximums
-
-                $('.panel-text').css('font-size', bodyheight + '%');
-                console.log(bodyheight)
-            }*/
-
-
-            $(window).resize(function(){
-                setBodyScale();
-                //setArapScale();
-            });
-
-            //Fire it when the page first loads:
-            setBodyScale();
-            //setArapScale()
-
-       
-        });
-	</script>
-<!-- ***************************************end js******************************************** -->
 </head>
 <!-- ***************************************end head ******************************************** -->
 <body>
-
-	<div id="logo">
-		<div class="menu-trigger"><img src="NavLight64.png"/></div><div class="indicator"><img src="HomeLight64.png" /></div><img id="logoimg" src="logo.gif" />
-		<div class="arrows">
-		<img class="arrow-left" src="LeftLight64.png" /><img class="arrow-right" src="RightLight64.png" />
-		</div>
-	</div>
-	<div id="menu">
-	<!--
-		<div id="menu-wrapper">
-			<div class="menu-button"><a href="/index.html">HOME</a></div>
-				  | 
-			<div class="menu-button"><a href="/samplemenu.html">SAMPLE MENU<a/></div>
-				  | 
-			<div class="menu-button"><a href="/program.html">MEAL PLANS<a/></div>
-				  | 
-			<div class="menu-button"><a href="/faq.html">FAQ</a></div>
-		</div>
-	-->
-		<div class="submenu">
-				<div class="submenu-wrapper">
-				<div class="submenu-item where-you-are">1</div>
-					|
-				<div class="submenu-item">2</div>
-			</div>
-		</div>
-	</div>
-	<div id="ajax-wrapper">
-		<div class="ajax-panel panel1 active ">
-
-			<div class="title-wrapper">
-				<div class="panel-title"><p>A Recipe For Happiness.</p></div>
-			</div>
-
-			<div class="panel-picture">
-				
-				<img src="home1.png"/>
-			</div>
-
-			<div class="panel-text">
-				
-				<p>At Kooshi, we firmly believe everyone deserves to eat well. Deliciously well. Nutritionally well. In fact, awesomely well.
-				</p><p>So we look for only the freshest, most wholesome, locally grown, organic food. Then our Cordon Bleu chefs custom make healthy and delicious meals. And deliver it right to your table.</p>
-			</div>
-
-		</div>
-
-		<div class="ajax-panel panel2 ">
-
-			<div class="title-wrapper">
-				<div class="panel-title"><p>Free to a Good Home.</p></div>
-			</div>
-
-			<div class="panel-picture">
-				
-				<img src="home2.png"/>
-			</div>
-
-			<div class="panel-text">
-				<p>There's only one way to find out how truely amazing our food is.And that's to eat it.</p>
-				
-				<p>So we'll give you a free breakfast, lunch and a snack.  Then we'll create a plan that's yours and yours alone.Because this is how you were meant to eat.Amazingly.</p>
-			</div>
-			<a href="form.html"><div class="button">
-			<div class="title">START YOUR FREE TRIAL</div>
-			</div></a>
-		</div>
-
-	</div>
-	<footer>
-	<div class="footer">
-
-			PH: 1.310.694.4734 | © Kooshi Gourmet, LLC 2014
-	</div>
-	</footer>
-
-
-
-
-
-<!-- the panel menu is hidden here -->
-<div id="the-panel-menu">
-		<div id="panel-menu-wrapper">
-			<div class="panel-menu-button"><a href="/index.html">HOME</a></div>
-				  
-			<div class="panel-menu-button"><a href="#">SAMPLE MENU<a/>
-
-				<div class="panel-submenu-wrapper">
-				<ul>
-					<a href="/breakfast.html" ><div class="panel-submenu-item"><li>breakfast</li></div></a>	
-					<a href="/lunch.html" ><div class="panel-submenu-item"><li>lunch</li></div></a>
-					<a href="/dinner.html" ><div class="panel-submenu-item"><li>dinner</li></div></a>
-					<a href="/snacks.html" ><div class="panel-submenu-item"><li>snacks</li></div></a>
-					<a href="/dessert.html" ><div class="panel-submenu-item"><li>dessert</li></div></a>
-				</ul>
-			</div>
-
-			</div>
-			
-			<div class="panel-menu-button"><a href="/faq.html">FAQ</a></div>
-
-			<div class="panel-menu-button"><a href="/program.html">MEAL PLANS<a/></div>
-			
-			<div class="panel-menu-button"><a href="/about.html">ABOUT</a></div>
-
-			<div class="panel-menu-button"><a href="#">CONTACT</a></div>
-
-			<div class="panel-menu-button"><a href="#">CATERING</a></div>
-
-			<div class="panel-menu-button"><a href="#">KOOSHI LUNCHBOX</a></div>
-
-			
-		<div class="panel-submenu">
-				
-		</div>
+<div id="webzone">
+	<img src="ralph.jpg" />
 </div>
 </body>
 

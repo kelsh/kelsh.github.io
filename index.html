@@ -7,24 +7,40 @@
 <!-- ***************************************start styles******************************************** -->
 	<link rel="stylesheet" type="text/css" href="normalize.css">
 	<link rel="stylesheet" type="text/css" href="kooshi.css">
-	<style>
+	
 		<style>
-			#webzone img{
-				animation-duration: 1.5s;
-  animation-name: spin;
-  animation-iteration-count: infinite;
+
+			#webzone {
+				-webkit-animation: spinyy linear 1.5s;
+				 animation:spinyy linear 1.5s;
+				 animation-iteration-count: infinite;
+				  -webkit-animation-iteration-count: infinite;
 			}
-			@keyframes spin{
+
+			@keyframes spinyy{
+				From {
 				transform:rotate(360deg);
 				-ms-transform:rotate(360deg); /* IE 9 */
 				-webkit-transform:rotate(360deg); /* Opera, Chrome, and Safari */
-				
+				}
+				To {
+					transform:rotate(0deg);
+				-ms-transform:rotate(0deg); /* IE 9 */
+				-webkit-transform:rotate(0deg);
+				}
 			}
-			@-webkit-keyframes spin{
+
+			@-webkit-keyframes spinyy{
+				From {
 				transform:rotate(360deg);
 				-ms-transform:rotate(360deg); /* IE 9 */
 				-webkit-transform:rotate(360deg); /* Opera, Chrome, and Safari */
-				
+				}
+				To {
+					transform:rotate(0deg);
+				-ms-transform:rotate(0deg); /* IE 9 */
+				-webkit-transform:rotate(0deg);
+				}
 			}
 		</style>
 	</style>

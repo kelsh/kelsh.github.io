@@ -54,7 +54,7 @@ $(document).on("ready", function () {
         	}
     	
     	endgame();
-        if (zeet <= 10000) {
+        if (zeet < 10000) {
             
             
             theGame();

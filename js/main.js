@@ -11,8 +11,8 @@ $(document).on("ready", function () {
         var a = [1, 2, 3]
         var b = Math.floor(Math.random() * 3);
         var c = Math.floor(Math.random() * 3);
-        var choice = a[c];
-        var car = a[b];
+        var choice = a[c]
+        var car = a[b]
         
         var choosing = function () {
             
@@ -39,7 +39,7 @@ $(document).on("ready", function () {
                 } else {
                     newChoice();
                 }
-        }
+        };
         newChoice();
         var endgame = function(){
         	if (choice === car) {
@@ -51,10 +51,10 @@ $(document).on("ready", function () {
                 	games++
                 	zeet++
             	}
-        	}
+        	};
     	
     	endgame();
-        if (zeet < 10000) {
+        if (zeet < 1000) {
             
             
             theGame();
@@ -64,7 +64,7 @@ $(document).on("ready", function () {
             $("#per").html((wins / games)*100);
         }
         
-    }
+    };
     $("#start-btn").on("click",function(){
     	zeet = 0;
     	theGame();

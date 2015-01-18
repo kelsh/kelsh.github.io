@@ -60,6 +60,7 @@ $(document).on("ready", function () {
             theGame();
         }else{
         	$("#wins").html(wins);
+            $("#games").html(games);
             $("#per").html((wins / games)*100);
         }
         

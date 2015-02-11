@@ -21,6 +21,7 @@ time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+   
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -64,12 +65,38 @@ nav{
     position: absolute;
     bottom:30vh;
 }
+.row.p-view{
+    bottom:22vh;
+    display:none;
+}
 .column{
     width:16%;
     margin-left:2%;
     margin-right:2%;
     height:180px;
     display:inline-block;
+}
+#project-view{
+    height:100%;
+    width:100%;
+    z-index:4;
+    position: fixed;
+    background-color:yellow;
+    display:none;
+}
+.project-backface{
+    transform:rotateY(-180deg);
+    height:100%;
+    width:100%;
+    z-index:3;
+    background-color:pink;
+    position: absolute;
+    backface-visibility: hidden;
+    display:none;
+    transform-style: preserve-3d;
+}
+.project.active .project-backface{
+    display: block;
 }
 #project-grid{
    
@@ -88,9 +115,15 @@ nav{
     width:100%;
      overflow: hidden;
 }
+#main-perspective-container.clicked{
+
+}
 .project{
     width:100%;
     height:100%;
+     -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+    backface-visibility: hidden;
+    position: relative;
 }
 .project:hover{
     z-index:2;
@@ -107,7 +140,7 @@ nav{
 .project-title{
     color:white;
 }
-.project:hover > .overlay{
+.project.hover > .overlay{
     display:block;
 }
 .project-thumbnail{

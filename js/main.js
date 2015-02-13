@@ -59,7 +59,18 @@ $(document).ready(function(){
 		$(".row").each(function(){
 			TweenLite.to($(this), 1, {transform:"translateZ(-"+distance+"px)"});
 			$(this).attr("data-z",distance);
-			distance = distance+1000;
+			distance = distance+1200;
+		});
+		i = 1;
+		$(".row").children(".column").each(function(){
+
+			if ($(this).hasClass("column")){
+				$(this).attr("data-row-number", i);
+			}
+			i++;
+			if(i > 5){
+				i=1;
+			}
 		});
 
 		
@@ -81,6 +92,7 @@ $(document).ready(function(){
  	var hoverTimer = false;
 	 
 	function mouseHover(){
+		$(".project").removeClass("hover");
 		$(this).addClass("hover");
 		TweenLite.to($(this), .4, {transform:"scale(1.35,1.35)"});
 	}
@@ -137,34 +149,82 @@ $(document).ready(function(){
  *    | |            _/ |                                    
  *    |_|           |__/                                     
  */
+
+ 	//turn off overlay for demo
+ 	var over = true;
+ 	$("#overlay-toggle").on("click",function(){
+ 		if (over === true){
+ 			over = false;
+ 			$("#project-view").css("display","none");
+ 		}else{
+ 			over = true;
+ 			$("#project-view").css("display","block");
+ 		}
+ 	});
+
+
  	var zoomAnimating = false;
+
 	$(".project").on("click", function(){
+
 		var thisref = $(this);
+		$(".project").removeClass("hover");
+		$(".project").removeClass("active");
+		TweenLite.to($(".project"), 0, {scale:1});
+		function leaveProjectView(thisref){
+
+			$(".project").hover(mouseHover, mouseLeaveHover);
+			thisref.parents(".row").removeClass("p-view");			
+			// put in something to stop other animations here
+			zoomPerspective.reverse();
+		}
 	if(zoomAnimating === false){
 		zoomAnimating = true;
-		
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+		var thisCol = thisref.parents(".column");
 		var thisrefbackface = $(this).children(".project-backface");
 		var blish = thisref.height();
 		var psoH = $("#main-perspective-container").height()/2;
 		var psoW = $("#main-perspective-container").width()/2;
+
+		var psoWtwo = psoW - (thisCol.position().left+(thisCol.width()/2));
+
+		var xGridOffset = psoW -( thisCol.attr("data-row-number") * (thisCol.width()));
+
+		if(xGridOffset > 0){
+			xGridOffset = xGridOffset + (thisCol.width()/2);
+		}else if(xGridOffset < 0){
+			xGridOffset = xGridOffset - (thisCol.width()/2);
+		}
+		console.log(xGridOffset);
+		
 		var  o = parseInt(thisref.parents(".row").attr("data-z"))+90;
 		if(state.projectView === false){
 		zoomPerspective = new TimelineLite({align:"start", paused:true});
 		
-		zoomPerspective.to(thisrefbackface, 1, {rotationY: 0,z:500},0);
-		zoomPerspective.to(thisref, .4, {transform:"scale(1,1)"},0);
-		zoomPerspective.to(thisref, 1, {rotationY: 180},0);
+		//zoomPerspective.to(thisrefbackface, 1, {rotationY: 0,z:500},0);
 		
-		zoomPerspective.to($("#project-grid"), 1, {z : o,y:-(blish/2)},0);
-		zoomPerspective.to($("#main-perspective-container"), 1, {
-				"perspective-origin": psoW+"px"+" "+psoH+"px",
-				"perspective": "170px"},0);
+		zoomPerspective.to(thisCol, .5, {rotationY: 180},0);
+		zoomPerspective.to($("#project-view"), .5, {x: "0"},0);
+		
+		zoomPerspective.to($("#project-grid"),.5, {
+			z : o,
+			y:-psoH/1.45,
+			x:xGridOffset
+		},0);
+		zoomPerspective.to($("#main-perspective-container"), .8, {
+				transformOrigin: psoW+"px"+" "+psoH+"px",
+				perspective: "170px"
+				},0);
 		}
 	if(state.projectView === false){
 		state.projectView = true;	
 		function enterProjectView(thisref){
 			thisref.removeClass("hover");
+			$(".project").removeClass("active");
 			thisref.addClass("active");
+			TweenLite.to($(".project"), {scale:1});
 			$(".project").off("mouseenter mouseleave");
 			console.log("fired")
 			
@@ -180,16 +240,13 @@ $(document).ready(function(){
 
 		state.projectView = false;
 		thisref.removeClass("active");
-		function leaveProjectView(thisref){
-			$(".project").removeClass("hover");
-			
-			$(".project").hover(mouseHover, mouseLeaveHover);
-			thisref.parents(".row").removeClass("p-view");			
-			// put in something to stop other animations here
-			zoomPerspective.reverse();
-		}
+		
 		leaveProjectView(thisref);
 	}
+	$(".close").on("click",function(){
+		state.projectView = false;
+		leaveProjectView(thisref);
+	})
 	}
 	setTimeout(function(){zoomAnimating = false }, 1000);
 	});

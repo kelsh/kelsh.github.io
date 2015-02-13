@@ -54,11 +54,27 @@ html, body{
     background-color:rgb(13,13,13);
 }
 nav{
-    height:20%;
+    padding-top:10px;
+    margin-bottom:10px;
+    min-height: 50px;
     width:100%;
-    background-color:pink;
+    background-color:rgb(70,70,70);
 }
-
+.leftt{
+    float:left;
+    display: inline;
+    width:300px;
+}
+.rightt{
+    float:right;
+    display: inline;
+    width:300px;
+}
+#nav-level-one{
+    border-bottom:1px solid rgb(170,170,170);
+    width:100%;
+    height:50px;
+}
 .row{
     width:100%;
     height:200px;
@@ -70,20 +86,143 @@ nav{
     display:none;
 }
 .column{
-    width:10%;
+    width:16%;
     margin-left:2%;
     margin-right:2%;
     height:180px;
     display:inline-block;
 }
+#logo{
+   
+    position: relative;
+    width:155px;
+    margin:0 auto;
+}
+#logo img{
+     margin:0 auto;
+     width:155px;
+     display:block;
+}
+#overlay-toggle{
+    background-color:white;
+    width:100px;
+    height:40px;
+    text-align: center;
+    padding-top: 16px;
+    position:fixed;
+    top: 0;
+    left: 0;
+}
+.menu-button a{
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: block;
+    padding: 6px 30px 6px 30px;
+    text-decoration: none;
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    margin-top:26px;
+}
+.menu-button a:hover{
+    background-color:rgb(209,40,39);
+}
+.menu-button{
+display: inline-block;
+}
 #project-view{
-    height:100%;
-    width:100%;
+    height:73%;
+    top:14%;
+    width:80%;
+    left:10%;
     z-index:4;
     position: fixed;
-    background-color:yellow;
+    background-color:white;
+    transform:translateX(-120%);
+    overflow: hidden;
+}
+.project-description{
+    padding-left:16px;
+    margin-bottom:100px;
+}
+.show-path{
+    font-weight: 600;
+    padding-top:16px;
+    font-size:20px;
+    color:#333;
+}
+.backface-content-area{
+    overflow-y: scroll;
+    margin-bottom:60px;
+}
+.project-content{
+    color:#333;
+    font-size:16px;
+    padding-top:24px;
+    margin-right:80px;
+}
+.show-path{
+    font-size:16px;
+}
+.project-title{
+    margin-right:90px;
+    padding-top:16px;
+    font-size:34px;
+    color:rgb(209,40,39);
+      font-family: Verdana, sans-serif;
+}
+.project-image-gallery{
     display:none;
 }
+.close{
+    width:100%;
+    color: white;
+    font-size:32px;
+    text-align:center;
+    padding-top:10px;
+}
+.b-f{
+    color:white;
+    text-align: center;
+    width:100px;
+    font-family:Verdana, sans-serif;
+    padding-top:10px;
+}
+#previous-project{
+    float:left;
+    padding-left:10px;
+}
+#next-project{
+    float:right;
+}
+.view-toggle{
+    width:80%;
+    margin-top:10px;
+    margin-left:10%;
+   margin-right:10%;
+    border-radius:100%;
+    
+    height:40px;
+    background-image:url(../img/camera.png);
+    background-size:80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.backface-side-nav{
+    position: absolute;
+    right: 0;
+    top:0;
+    width:40px;
+    height: 100%;
+    background-color:rgb(105,105,105);
+}
+.backface-botnav{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:40px;
+    background-color:rgb(209,40,39);
+}
+
 .project-backface{
     transform:rotateY(-180deg);
     height:100%;
@@ -95,6 +234,10 @@ nav{
     display:none;
     transform-style: preserve-3d;
 }
+.backface-content-area{
+    height:100%;
+    width:100%;
+}
 .project.active .project-backface{
     display: block;
 }
@@ -103,7 +246,32 @@ nav{
     transform-style: preserve-3d;
     height: 100%;
 
+
    
+}
+body::selection {
+  background:transparent; /* WebKit/Blink Browsers */
+  color:transparent;
+}
+body::-moz-selection {
+  background: transparent; /* Gecko Browsers */
+  color:transparent;
+}
+#project-grid::selection {
+  background:transparent; /* WebKit/Blink Browsers */
+  color:transparent;
+}
+#project-grid::-moz-selection {
+  background: transparent; /* Gecko Browsers */
+  color:transparent;
+}
+#main-perspective-container::selection {
+  background:transparent; /* WebKit/Blink Browsers */
+  color:transparent;
+}
+#main-perspective-container::-moz-selection {
+  background: transparent; /* Gecko Browsers */
+  color:transparent;
 }
 #main-perspective-container{
     -webkit-perspective: 1000px; /* Chrome, Safari, Opera */
@@ -134,12 +302,10 @@ nav{
     height:100%;
     width:100%;
     z-index:3;
-    background-color:red;
+    background-color:rgb(209,40,39);
     display:none;
 }
-.project-title{
-    color:white;
-}
+
 .project.hover > .overlay{
     display:block;
 }

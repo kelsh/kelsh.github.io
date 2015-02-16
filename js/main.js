@@ -164,9 +164,7 @@ $(document).ready(function(){
 		TweenLite.fromTo(a,2,{rotationY:180},{rotationY:0},0);
 	});
 	}
-	if($(window).width() < 600){
-	getThumbnail();
-	}
+	
 	
 	/***
  *     _                                 __  __          _       

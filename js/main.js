@@ -165,6 +165,8 @@ $(document).ready(function(){
 	});
 	}
 	
+	getThumbnail();
+
 	
 	/***
  *     _                                 __  __          _       

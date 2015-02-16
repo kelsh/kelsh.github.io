@@ -64,7 +64,10 @@ $(document).ready(function(){
  		// check how many columns are needed
  		var availableSpace = $(window).width() - 80;
  		init.howManyColumns = availableSpace/240 | 0;
- 		console.log(init.howManyColumns)
+
+ 		if(init.howManyColumns<1){
+ 			init.howManyColumns = 1;
+ 		}
  	}
  	function makeRows (){
  		howManyProjects();

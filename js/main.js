@@ -20,11 +20,11 @@ $(document).ready(function(){
  *                                                                                  
  *                                                                                  
  */
-	var nwRow = $( "<div/>", {
-    "class": "row"+" "+rowCount(),
+	var nwRow = new $( "<div/>", {
+    "class": "row",
 	});
-	var nwCol = $( "<div/>", {
-    "class": "column"+" "+colCount(),
+	var nwCol = new $( "<div/>", {
+    "class": "column",
 	});
 	
 
@@ -39,11 +39,29 @@ $(document).ready(function(){
  *                   
  *                   
  */
- 	// tie row to screen height
- 	
- 	function howManyColumns(){
- 		// check how many columns are needed
+ 	init = {};
+ 	var projectDescription = $(".project-description");
+ 	projectsList = {};
 
+ 	/* this is where the xml request goes 
+ 	function getProjectsList(){
+ 		$.get("test.xml").done(function(response){
+ 			console.log(response);
+ 			// get length of number of projects.
+ 			projectsList.projects = $(response).find("project");
+ 		});
+ 	}
+ 	getProjectsList();
+    */
+
+ 	// tie row to screen height
+ 	function howManyProjects() {
+ 		//put in code here to count number of projects
+ 		init.howManyProjects = 80;
+ 		
+ 	}
+ 	init.howManyColumns = function(){
+ 		// check how many columns are needed
  		var availableSpace = $(window).width() - 80;
  		init.howManyColumns = availableSpace/240 | 0;
 
@@ -95,8 +113,6 @@ $(document).ready(function(){
 	 		$(".column").css("margin-right", calculateMargin());
  		});
  		
-
- 		
  	}
  	function rowCount(){
  		var a = document.getElementsByClassName("row");
@@ -107,12 +123,17 @@ $(document).ready(function(){
  		return a.length;
  	}
 	function rowSet(){
+
+		var initTL = new TimelineLite({align:"start",autoRemoveChildren:false});
+		
 		var theRows = $(".row");
-		var distance = 0
+		var distance = 0;
 		$(".row").each(function(){
-			TweenLite.to($(this), 1, {transform:"translateZ(-"+distance+"px)"});
+	 		
+	 		initTL.to($(this), 1, {transform:"translateZ(-"+distance+"px)"},0);
+			
 			$(this).attr("data-z",distance);
-			distance = distance+1200;
+			distance = distance+800;
 		});
 		i = 1;
 		$(".row").children(".column").each(function(){
@@ -125,9 +146,12 @@ $(document).ready(function(){
 				i=1;
 			}
 		});
-
+		TweenLite.to($("#project-view"), 0,{transform:"translateZ(-"+distance+"px)"} );
+		$("#project-view").attr("data-z",distance);
 		
 	}
+	makeRows();
+	makeColumns();
 	rowSet();
 	function getThumbnail(){
 	//  get thumbnails for the project.
@@ -140,12 +164,10 @@ $(document).ready(function(){
 		TweenLite.fromTo(a,2,{rotationY:180},{rotationY:0},0);
 	});
 	}
-	if($(window).width() > 600){
+	if($(window).width() < 600){
 	getThumbnail();
 	}
-
 	
-
 	/***
  *     _                                 __  __          _       
  *    | |                               / _|/ _|        | |      
@@ -197,8 +219,8 @@ $(document).ready(function(){
 	});
 	
 
-
- 	$("#main-perspective-container").bind('mousewheel DOMMouseScroll', function(event){
+	function zScroll(){
+ 	$("#main-perspective-container").on('mousewheel DOMMouseScroll', function(event){
 	    if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
 	       		
 				TweenLite.to($("#project-grid"),.2, {z:"+=400px"});
@@ -207,6 +229,8 @@ $(document).ready(function(){
 	       		TweenLite.to($("#project-grid"),.2, {z:"-=400px"});
 	    }
 	});
+ 	}
+ 	zScroll();
  /***
  *                     _           _         _               
  *                    (_)         | |       (_)              
@@ -220,72 +244,66 @@ $(document).ready(function(){
 
  	//turn off overlay for demo
  	var over = true;
- 	$("#overlay-toggle").on("click",function(){
- 		if (over === true){
- 			over = false;
- 			$("#project-view").css("display","none");
- 		}else{
- 			over = true;
- 			$("#project-view").css("display","block");
- 		}
- 	});
+
+ 	function loadProjectToView(thisref){
+ 		//load text
+
+ 		TweenLite.fromTo(projectDescription,.8,{
+			x:-100+"%",
+			opacity:0
+		},{
+			x:0+"%",
+			opacity:1
+		},.8)
+ 	}
 
 
  	var zoomAnimating = false;
 
 	$(".project").on("click", function(){
-
+		$("#main-perspective-container").off();
 		var thisref = $(this);
 		$(".project").removeClass("hover");
 		$(".project").removeClass("active");
 		TweenLite.to($(".project"), 0, {scale:1});
 		function leaveProjectView(thisref){
 
-			$(".project").hover(mouseHover, mouseLeaveHover);
-			thisref.parents(".row").removeClass("p-view");			
+			//$(".project").hover(mouseHover, mouseLeaveHover);
+			//thisref.parents(".row").removeClass("p-view");			
 			// put in something to stop other animations here
-			zoomPerspective.reverse();
+			zoomPerspective.reverse().timeScale(2);
 		}
 	if(zoomAnimating === false){
 		zoomAnimating = true;
 		var windowWidth = $(window).width();
 		var windowHeight = $(window).height();
-		var thisCol = thisref.parents(".column");
-		var thisrefbackface = $(this).children(".project-backface");
+		
 		var blish = thisref.height();
 		var psoH = $("#main-perspective-container").height()/2;
 		var psoW = $("#main-perspective-container").width()/2;
-
-		var psoWtwo = psoW - (thisCol.position().left+(thisCol.width()/2));
-
-		var xGridOffset = psoW -( thisCol.attr("data-row-number") * (thisCol.width()));
-
-		if(xGridOffset > 0){
-			xGridOffset = xGridOffset + (thisCol.width()/2);
-		}else if(xGridOffset < 0){
-			xGridOffset = xGridOffset - (thisCol.width()/2);
-		}
-		console.log(xGridOffset);
+		$("#project-view").css("display", "block");
 		
-		var  o = parseInt(thisref.parents(".row").attr("data-z"))+90;
+		var  o = parseInt($("#project-view").attr("data-z"))-20;
 		if(state.projectView === false){
 		zoomPerspective = new TimelineLite({align:"start", paused:true});
 		
-		//zoomPerspective.to(thisrefbackface, 1, {rotationY: 0,z:500},0);
 		
-		zoomPerspective.to(thisCol, .5, {rotationY: 180},0);
-		zoomPerspective.to($("#project-view"), .5, {x: "0"},0);
+		zoomPerspective.to($("#project-view"),.4, {
+			opacity:1
+		});
 		
-		zoomPerspective.to($("#project-grid"),.5, {
+		zoomPerspective.to($("#project-grid"),.2, {
 			z : o,
-			y:-psoH/1.45,
-			x:xGridOffset
+			y:0,
+			x:0
 		},0);
 		zoomPerspective.to($("#main-perspective-container"), .8, {
-				transformOrigin: psoW+"px"+" "+psoH+"px",
-				perspective: "170px"
+				transformOrigin: "50% 50%",
+				perspective: "200px"
 				},0);
 		}
+		loadProjectToView(thisref);
+		
 	if(state.projectView === false){
 		state.projectView = true;	
 		function enterProjectView(thisref){
@@ -293,12 +311,10 @@ $(document).ready(function(){
 			$(".project").removeClass("active");
 			thisref.addClass("active");
 			TweenLite.to($(".project"), {scale:1});
-			$(".project").off("mouseenter mouseleave");
-			console.log("fired")
-			
+			$(".project").off("mouseenter mouseleave");			
 
 			// put in something to stop other animations here
-			zoomPerspective.play();
+			zoomPerspective.play().timeScale(1);
 		}
 		enterProjectView(thisref);
 		
@@ -310,12 +326,19 @@ $(document).ready(function(){
 		thisref.removeClass("active");
 		
 		leaveProjectView(thisref);
+		
+		$(".project").hover(mouseHover, mouseLeaveHover);
+		zScroll();
+
 	}
 	$(".close").on("click",function(){
 		state.projectView = false;
 		leaveProjectView(thisref);
+		//turn events back on
+		$(".project").hover(mouseHover, mouseLeaveHover);
+		zScroll();
 	})
 	}
-	setTimeout(function(){zoomAnimating = false }, 1000);
+	setTimeout(function(){zoomAnimating = false }, 500);
 	});
 });

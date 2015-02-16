@@ -206,7 +206,7 @@ $(document).ready(function(){
  //if no touch events:
  	var myHammer = document.getElementById('main-perspective-container');
 	var mc = new Hammer(myHammer);
-	
+	function deskPan(){
 	mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 	mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 	mc.on("panup",function(ev){
@@ -217,8 +217,8 @@ $(document).ready(function(){
 		TweenLite.to($("#project-grid"),.2, {z:"+="+(ev.velocityY*350)});
 		console.log("pannded")
 	});
-	
-
+	}
+	deskPan()
 	function zScroll(){
  	$("#main-perspective-container").on('mousewheel DOMMouseScroll', function(event){
 	    if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
@@ -311,7 +311,9 @@ $(document).ready(function(){
 			$(".project").removeClass("active");
 			thisref.addClass("active");
 			TweenLite.to($(".project"), {scale:1});
-			$(".project").off("mouseenter mouseleave");			
+			$(".project").off("mouseenter mouseleave");	
+			mc.off("panup");
+			mc.off("pandown");			
 
 			// put in something to stop other animations here
 			zoomPerspective.play().timeScale(1);
@@ -326,7 +328,7 @@ $(document).ready(function(){
 		thisref.removeClass("active");
 		
 		leaveProjectView(thisref);
-		
+		 deskPan()
 		$(".project").hover(mouseHover, mouseLeaveHover);
 		zScroll();
 
@@ -335,6 +337,7 @@ $(document).ready(function(){
 		state.projectView = false;
 		leaveProjectView(thisref);
 		//turn events back on
+		 deskPan()
 		$(".project").hover(mouseHover, mouseLeaveHover);
 		zScroll();
 	})

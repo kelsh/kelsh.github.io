@@ -61,35 +61,48 @@ nav{
     background-color:rgb(70,70,70);
 }
 .leftt{
-    float:left;
+   
     display: inline;
-    width:300px;
+    
 }
 .rightt{
-    float:right;
+   
     display: inline;
-    width:300px;
+    
 }
 #nav-level-one{
     border-bottom:1px solid rgb(170,170,170);
     width:100%;
-    height:50px;
+    min-height:50px;
+}
+#nav-level-two{
+    border-bottom:1px solid rgb(170,170,170);
+    width:100%;
+    min-height:30px;
+    display: none;
+}
+#nav-level-three{
+    border-bottom:1px solid rgb(170,170,170);
+    width:100%;
+    min-height:30px;
+    display:none;
 }
 .row{
     width:100%;
     height:200px;
     position: absolute;
     bottom:30vh;
+    margin-left:40px;
+    margin-right:40px;
 }
 .row.p-view{
     bottom:22vh;
     display:none;
 }
 .column{
-    width:16%;
-    margin-left:2%;
-    margin-right:2%;
-    height:180px;
+    width:200px;
+   
+    height:140px;
     display:inline-block;
 }
 #logo{
@@ -116,8 +129,8 @@ nav{
 .menu-button a{
     color: #FFFFFF;
     text-transform: uppercase;
-    display: block;
-    padding: 6px 30px 6px 30px;
+    display: inline-block;
+    padding: 6px 20px 6px 20px;
     text-decoration: none;
     font-family: Verdana, sans-serif;
     font-size: 12px;
@@ -131,16 +144,19 @@ display: inline-block;
 }
 #project-view{
     height:73%;
-    top:14%;
+    top:5%;
     width:80%;
     left:10%;
     z-index:4;
-    position: fixed;
+    position: relative;
     background-color:white;
-    transform:translateX(-120%);
-    overflow: hidden;
+    display:none;
+    opacity:0;
+     backface-visibility: hidden;
 }
 .project-description{
+    left:-100%;
+    opacity:0;
     padding-left:16px;
     margin-bottom:100px;
 }
@@ -153,6 +169,7 @@ display: inline-block;
 .backface-content-area{
     overflow-y: scroll;
     margin-bottom:60px;
+    backface-visibility: hidden;
 }
 .project-content{
     color:#333;
@@ -245,8 +262,8 @@ display: inline-block;
    
     transform-style: preserve-3d;
     height: 100%;
-
-
+    -webkit-transform-style: preserve-3d;
+    
    
 }
 body::selection {
@@ -276,12 +293,16 @@ body::-moz-selection {
 #main-perspective-container{
     -webkit-perspective: 1000px; /* Chrome, Safari, Opera */
     perspective: 1000px;
+    
     perspective-origin: 50% -20px;
     -webkit-perspective-origin:50% -20px;
     -ms-perspective-origin: 50% -20px;
+    -moz-perspective-origin: 50% -20px;
+    transform-style: preserve-3d;
     height: 100%;
     width:100%;
      overflow: hidden;
+     -moz-transform-style: preserve-3d;
 }
 #main-perspective-container.clicked{
 
@@ -292,6 +313,7 @@ body::-moz-selection {
      -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
     backface-visibility: hidden;
     position: relative;
+    -moz-transform-style: preserve-3d;
 }
 .project:hover{
     z-index:2;
@@ -301,9 +323,12 @@ body::-moz-selection {
     float:left;
     height:100%;
     width:100%;
-    z-index:3;
+    z-index:2;
     background-color:rgb(209,40,39);
     display:none;
+    -moz-transform-style: preserve-3d;
+     -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+    backface-visibility: hidden;
 }
 
 .project.hover > .overlay{
@@ -314,6 +339,9 @@ body::-moz-selection {
     background-size:100% 100%;
     height:100%;
     width:100%;
+    -moz-transform-style: preserve-3d;
+     -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+    backface-visibility: hidden;
 }
 .bottom-border{
     height:8px;
@@ -321,4 +349,7 @@ body::-moz-selection {
     background-color:red;
     position: relative;
     bottom:0;
+    -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+    backface-visibility: hidden;
+    -moz-transform-style: preserve-3d;
 }

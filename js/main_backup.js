@@ -40,20 +40,6 @@ $(document).ready(function(){
  *                   
  */
  	init = {};
- 	var projectDescription = $(".project-description");
- 	projectsList = {};
-
- 	/* this is where the xml request goes 
- 	function getProjectsList(){
- 		$.get("test.xml").done(function(response){
- 			console.log(response);
- 			// get length of number of projects.
- 			projectsList.projects = $(response).find("project");
- 		});
- 	}
- 	getProjectsList();
-    */
-
  	// tie row to screen height
  	function howManyProjects() {
  		//put in code here to count number of projects
@@ -101,13 +87,7 @@ $(document).ready(function(){
 	 			
 	 		}
 	 		blah(i);
-	 		function calculateMargin(){
-	 			var sw = $(window).width();
-	 			var a = (sw-80) - i*200;
-	 			return (a/i)/2;
-	 		}
-	 		$(".column").css("margin-left", calculateMargin());
-	 		$(".column").css("margin-right", calculateMargin());
+	 		
  		});
  		
  	}
@@ -143,8 +123,7 @@ $(document).ready(function(){
 				i=1;
 			}
 		});
-		TweenLite.to($("#project-view"), 0,{transform:"translateZ(-"+distance+"px)"} );
-		$("#project-view").attr("data-z",distance);
+		TweenLite.to($("#project-view"), 0,{transform:"translateZ(-"+distance+"px)"} )
 		
 	}
 	makeRows();
@@ -154,16 +133,9 @@ $(document).ready(function(){
 	//  get thumbnails for the project.
 	//	var initTLa = new TimelineLite({align:"start",autoRemoveChildren:false});
 	//	initTLa.fromTo(k,1.5,{rotationY:180},{rotationY:0},0);
-	$(".project-thumbnail").each(function(){
-		var a = $(this).parents(".column");
-		$(this).css("background-image","url(img/test.jpg)");
-
-		TweenLite.fromTo(a,2,{rotationY:180},{rotationY:0},0);
-	});
 	}
-	getThumbnail();
 	
-	
+
 	/***
  *     _                                 __  __          _       
  *    | |                               / _|/ _|        | |      
@@ -215,8 +187,8 @@ $(document).ready(function(){
 	});
 	
 
-	function zScroll(){
- 	$("#main-perspective-container").on('mousewheel DOMMouseScroll', function(event){
+
+ 	$("#main-perspective-container").bind('mousewheel DOMMouseScroll', function(event){
 	    if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
 	       		
 				TweenLite.to($("#project-grid"),.2, {z:"+=400px"});
@@ -225,8 +197,6 @@ $(document).ready(function(){
 	       		TweenLite.to($("#project-grid"),.2, {z:"-=400px"});
 	    }
 	});
- 	}
- 	zScroll();
  /***
  *                     _           _         _               
  *                    (_)         | |       (_)              
@@ -240,66 +210,68 @@ $(document).ready(function(){
 
  	//turn off overlay for demo
  	var over = true;
-
- 	function loadProjectToView(thisref){
- 		//load text
-
- 		TweenLite.fromTo(projectDescription,.8,{
-			x:-100+"%",
-			opacity:0
-		},{
-			x:0+"%",
-			opacity:1
-		},.8)
- 	}
+ 	$("#overlay-toggle").on("click",function(){
+ 		if (over === true){
+ 			over = false;
+ 			$("#project-view").css("display","none");
+ 		}else{
+ 			over = true;
+ 			$("#project-view").css("display","block");
+ 		}
+ 	});
 
 
  	var zoomAnimating = false;
 
 	$(".project").on("click", function(){
-		$("#main-perspective-container").off();
+
 		var thisref = $(this);
 		$(".project").removeClass("hover");
 		$(".project").removeClass("active");
 		TweenLite.to($(".project"), 0, {scale:1});
 		function leaveProjectView(thisref){
 
-			//$(".project").hover(mouseHover, mouseLeaveHover);
-			//thisref.parents(".row").removeClass("p-view");			
+			$(".project").hover(mouseHover, mouseLeaveHover);
+			thisref.parents(".row").removeClass("p-view");			
 			// put in something to stop other animations here
-			zoomPerspective.reverse().timeScale(2);
+			zoomPerspective.reverse();
 		}
 	if(zoomAnimating === false){
 		zoomAnimating = true;
 		var windowWidth = $(window).width();
 		var windowHeight = $(window).height();
-		
+		var thisCol = thisref.parents(".column");
+		var thisrefbackface = $(this).children(".project-backface");
 		var blish = thisref.height();
 		var psoH = $("#main-perspective-container").height()/2;
 		var psoW = $("#main-perspective-container").width()/2;
-		$("#project-view").css("display", "block");
+
+		var psoWtwo = psoW - (thisCol.position().left+(thisCol.width()/2));
+
+		var xGridOffset = (psoW-40) - ( thisCol.attr("data-row-number") * 200);
+		console.log(psoW, xGridOffset)
 		
-		var  o = parseInt($("#project-view").attr("data-z"))-20;
+		console.log(xGridOffset);
+		
+		var  o = parseInt(thisref.parents(".row").attr("data-z"))+90;
 		if(state.projectView === false){
 		zoomPerspective = new TimelineLite({align:"start", paused:true});
 		
+		//zoomPerspective.to(thisrefbackface, 1, {rotationY: 0,z:500},0);
 		
-		zoomPerspective.to($("#project-view"),.4, {
-			opacity:1
-		});
+		zoomPerspective.to(thisCol, .5, {rotationY: 180},0);
+		zoomPerspective.to($("#project-view"), .5, {x: 0},0);
 		
-		zoomPerspective.to($("#project-grid"),.2, {
+		zoomPerspective.to($("#project-grid"),.5, {
 			z : o,
-			y:0,
-			x:0
+			y:-psoH,
+			x:xGridOffset
 		},0);
 		zoomPerspective.to($("#main-perspective-container"), .8, {
 				transformOrigin: "50% 50%",
 				perspective: "200px"
 				},0);
 		}
-		loadProjectToView(thisref);
-		
 	if(state.projectView === false){
 		state.projectView = true;	
 		function enterProjectView(thisref){
@@ -307,10 +279,12 @@ $(document).ready(function(){
 			$(".project").removeClass("active");
 			thisref.addClass("active");
 			TweenLite.to($(".project"), {scale:1});
-			$(".project").off("mouseenter mouseleave");			
+			$(".project").off("mouseenter mouseleave");
+			console.log("fired")
+			
 
 			// put in something to stop other animations here
-			zoomPerspective.play().timeScale(1);
+			zoomPerspective.play();
 		}
 		enterProjectView(thisref);
 		
@@ -322,17 +296,10 @@ $(document).ready(function(){
 		thisref.removeClass("active");
 		
 		leaveProjectView(thisref);
-		
-		$(".project").hover(mouseHover, mouseLeaveHover);
-		zScroll();
-
 	}
 	$(".close").on("click",function(){
 		state.projectView = false;
 		leaveProjectView(thisref);
-		//turn events back on
-		$(".project").hover(mouseHover, mouseLeaveHover);
-		zScroll();
 	})
 	}
 	setTimeout(function(){zoomAnimating = false }, 500);

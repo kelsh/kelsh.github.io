@@ -41,6 +41,7 @@ $(document).ready(function(){
  */
  	init = {};
  	var projectDescription = $(".project-description");
+ 	var projectGallery = $(".project-image-gallery");
  	projectsList = {};
 
  	/* this is where the xml request goes 
@@ -210,15 +211,15 @@ $(document).ready(function(){
 	mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 	mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 	mc.on("panup",function(ev){
-		TweenLite.to($("#project-grid"),.2, {z:"+="+(ev.velocityY*350)});
+		TweenLite.to($("#project-grid"),.1, {z:"+="+(ev.velocityY*350)});
 		console.log("pannded")
 	});
 	mc.on("pandown",function(ev){
-		TweenLite.to($("#project-grid"),.2, {z:"+="+(ev.velocityY*350)});
+		TweenLite.to($("#project-grid"),.1, {z:"+="+(ev.velocityY*350)});
 		console.log("pannded")
 	});
 	}
-	deskPan()
+	deskPan();
 	function zScroll(){
  	$("#main-perspective-container").on('mousewheel DOMMouseScroll', function(event){
 	    if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
@@ -231,6 +232,77 @@ $(document).ready(function(){
 	});
  	}
  	zScroll();
+ 	//mouse position movement
+ 	var oldMouseX = 0;
+ 	var oldMouseY = 0;
+ 	var mouseOverDelay = false;	
+ 	
+	var intervalSet = false;
+	var mpHeight  = $("#main-perspective-container").height();
+	var mpWidth  = $("#main-perspective-container").width();
+	var mouseMovetl = new TimelineLite();
+	TweenLite.ticker.fps(25);
+	var mousey = 0;
+	var mousex = 0;
+ 	$(window).on("mousemove",function(e){
+ 		mouseNavigation(e);
+ 	});
+ 	function mouseNavigation(e){
+ 		 mousex = e.clientX;
+ 		 mousey = e.clientY;
+
+ 		
+ 		// move  y
+ 		var moveScreen = function(){
+ 			var navHeight =  $("nav").height() ;
+	 		if(killMouse === false){
+	 				
+	 				var diff = mousey-oldMouseY;
+ 					var navOffset = mousey - navHeight;
+ 					var j =  navOffset - (mpHeight*.5);
+
+	 				if(navOffset < (mpHeight*.5)-(mpHeight*.30) && navOffset >0  ){
+	 				
+		 				 mouseMovetl.to($("#project-grid"),0, {z:"-="+j/75+"px",overwrite:"concurrent"});
+
+		 			
+		 				moveX()
+		 				oldMouseY = mousey;
+		 				interval = setTimeout(moveScreen, 40);
+	 				}
+	 				else if( navOffset > (mpHeight*.5)+(mpHeight*.1)){
+	 					
+	 					 mouseMovetl.to($("#project-grid"),.0, {z:"-="+j/75+"px", overwrite:"concurrent"});
+	 					moveX();
+	 					oldMouseY = mousey;
+	 					interval = setTimeout(moveScreen, 40);
+	 				}else if (navOffset < (mpHeight*.5)+(mpHeight*.1) && navOffset > (mpHeight*.5)-(mpHeight*.30)  ){
+	 					oldMouseY = mousey;
+	 					moveX();
+	 					mouseMovetl.kill();
+	 				
+	 					stopInterval();
+	 				}
+	 				
+	 				function moveX(){
+	 					if(mousex < ((mpWidth/2)-50)){
+	 						 mouseMovetl.to($("#project-grid"),0, {x:"+="+mousex*.002+"px",overwrite:"concurrent"});
+	 					}else if(mousex > ((mpWidth/2)+50)){
+	 						 mouseMovetl.to($("#project-grid"),0, {x:"-="+mousex*.002+"px",overwrite:"concurrent"});
+	 					}
+	 				}
+	 			
+				}
+	 	}
+
+ 		
+ 		var interval = setTimeout(moveScreen, 20);
+
+		function stopInterval() {
+		clearTimeout(interval);
+ 		}
+ 	};
+
  /***
  *                     _           _         _               
  *                    (_)         | |       (_)              
@@ -244,23 +316,67 @@ $(document).ready(function(){
 
  	//turn off overlay for demo
  	var over = true;
-
+ 	var galleryShowing= false;
  	function loadProjectToView(thisref){
  		//load text
-
- 		TweenLite.fromTo(projectDescription,.8,{
+ 		galleryShowing= false;
+ 		TweenLite.fromTo(projectGallery,.4,{
+			x:0+"%",
+			opacity:1
+		},{
+			x:100+"%",
+			opacity:0,
+			delay:.3
+		});
+ 		projectGallery.css("display","none");
+ 		projectDescription.css("display","block");
+ 		TweenLite.fromTo(projectDescription,.4,{
 			x:-100+"%",
 			opacity:0
 		},{
 			x:0+"%",
-			opacity:1
-		},.8)
+			opacity:1,
+			delay:.4
+		});
  	}
+ 	function loadGalleryView(thisref){
+ 		// load images
+ 			galleryShowing= true;
+ 			TweenLite.fromTo(projectDescription,.4,{
+			x:0+"%",
+			opacity:1
+		},{
+			x:-100+"%",
+			opacity:0,
+			delay:.3
+		});
+ 		projectDescription.css("display","none");
+ 		projectGallery.css("display","block");
+ 		TweenLite.fromTo(projectGallery,.4,{
+			x:100+"%",
+			opacity:0
+		},{
+			x:0+"%",
+			opacity:1,
+			delay:.3
+		});
+ 	}	
+ 	
+ 	
+ 	$(".view-toggle").on("click",function(){
+ 		if(galleryShowing === false){
+ 			loadGalleryView();
+ 		}else{
+ 			loadProjectToView();
+ 		}
 
-
+ 	});
  	var zoomAnimating = false;
-
+ 	var killMouse = false;
 	$(".project").on("click", function(){
+		killMouse=true;
+		mouseMovetl.kill();
+
 		$("#main-perspective-container").off();
 		var thisref = $(this);
 		$(".project").removeClass("hover");
@@ -271,7 +387,7 @@ $(document).ready(function(){
 			//$(".project").hover(mouseHover, mouseLeaveHover);
 			//thisref.parents(".row").removeClass("p-view");			
 			// put in something to stop other animations here
-			zoomPerspective.reverse().timeScale(2);
+			zoomPerspective.reverse().timeScale(1.5);
 		}
 	if(zoomAnimating === false){
 		zoomAnimating = true;
@@ -292,12 +408,12 @@ $(document).ready(function(){
 			opacity:1
 		});
 		
-		zoomPerspective.to($("#project-grid"),.2, {
+		zoomPerspective.to($("#project-grid"),1.0, {
 			z : o,
 			y:0,
 			x:0
 		},0);
-		zoomPerspective.to($("#main-perspective-container"), .8, {
+		zoomPerspective.to($("#main-perspective-container"), 1.0, {
 				transformOrigin: "50% 50%",
 				perspective: "200px"
 				},0);
@@ -312,6 +428,7 @@ $(document).ready(function(){
 			thisref.addClass("active");
 			TweenLite.to($(".project"), {scale:1});
 			$(".project").off("mouseenter mouseleave");	
+			$(window).off();
 			mc.off("panup");
 			mc.off("pandown");			
 
@@ -328,16 +445,23 @@ $(document).ready(function(){
 		thisref.removeClass("active");
 		
 		leaveProjectView(thisref);
-		 deskPan()
+		 deskPan();
+		 $(window).on("mousemove",function(e){
+ 		mouseNavigation(e)
+ 		});
 		$(".project").hover(mouseHover, mouseLeaveHover);
 		zScroll();
-
+		killMouse=false;
 	}
 	$(".close").on("click",function(){
 		state.projectView = false;
 		leaveProjectView(thisref);
 		//turn events back on
-		 deskPan()
+		 deskPan();
+		 killMouse=false;
+		 $(window).on("mousemove",function(e){
+ 		mouseNavigation(e)
+ 	});
 		$(".project").hover(mouseHover, mouseLeaveHover);
 		zScroll();
 	})

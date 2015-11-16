@@ -61,17 +61,24 @@ table {
     line-height: 40px;
 }
 #menu{
-    height:94px;
+    height:1px;
 background-color:transparent;
-border-bottom: 1px solid white;
-width:100%;
 padding-left:30px;
     padding-top:30px;
     top:0;
     z-index:3;
 }
+.menu-border{
+   
+    margin-bottom:94px;
+   
+    z-index:3;
+    width:100%;
+    height: 1px;
+    border-bottom:1px solid white;
+}
 #menu-button{
-    
+    margin-bottom:-94px;
 }
 #hero {
     height: 500px;
@@ -92,25 +99,76 @@ padding-left:30px;
     width:400px;
     transform:translatex(-100%);
     z-index: 4;
-    background-color:blue;
+    background-color:rgba(0,0,0,.9);
     position: fixed;
+    transition:all .4s ease;
+}
+#side-menu ul{
+    margin-left:40px;
+    margin-top:40px;
+    color:white;
+    text-transform: uppercase;
+    font-size:2em;
+    line-height:2em;
+}
+#side-menu ul li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.button-container{
+    width:100%;
+    margin-top:60px;
+        text-align: center;
+}
+#more-images{
+    margin:0 auto;
+    width:150px;
+    height:60px;
 }
 #side-menu.open{
     transform:translatex(0);
 }
-#catagories .cat-button {
-    color: purple;
+#cata .cat-button {
+    text-decoration: none;
+    color: #666;
     text-align: center;
+    box-sizing:border-box;
+    margin:-4px auto;
+    width:100px;
+}
+#cata .cat-button:hover {
+   
+    color:black;
 }
 
+.center{
+    text-align: center;
+}
+.cat-button.active{
+     border-bottom:4px solid purple;
+}
+#close-menu{
+    color:white;
+    height:30px;
+    width:30px;
+    position: absolute;
+    top: 30px;
+    right:30px;
+    cursor: pointer;
+}
 #photo-gallery {
     background-color: #ededee;
-    min-height: 1160px;
-    
+    min-height: 840px;
+    overflow: hidden;
+    padding-top:100px;
+    padding-bottom:100px;
 }
 #photo-gallery .img-container{
     width:90%;
     margin:0 auto;
+}
+#photo-gallery .img-container img{
+
 }
 #footer {
     background-color: #280c21;

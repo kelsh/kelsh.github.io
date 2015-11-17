@@ -145,6 +145,7 @@ padding-left:30px;
     text-align: center;
 }
 .cat-button.active{
+        padding-bottom: 34px;
      border-bottom:4px solid purple;
 }
 #close-menu{

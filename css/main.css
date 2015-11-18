@@ -80,6 +80,13 @@ padding-left:30px;
 #menu-button{
     margin-bottom:-94px;
 }
+#cata #menu-button{
+    margin-bottom:0px;
+    position: absolute;
+    top: 5px;
+    left:30px;
+}
+
 #hero {
     height: 500px;
     background: url('../img/domo-imgs_0005_Header-Image.png')
@@ -111,7 +118,12 @@ padding-left:30px;
     font-size:2em;
     line-height:2em;
 }
-#side-menu ul li:hover{
+#side-menu ul a{
+color:white;
+text-decoration:none;
+display:block;
+}
+#side-menu ul a:hover{
     text-decoration: underline;
     cursor: pointer;
 }
@@ -145,8 +157,8 @@ padding-left:30px;
     text-align: center;
 }
 .cat-button.active{
-        padding-bottom: 34px;
-     border-bottom:4px solid purple;
+        padding-bottom: 35px;
+     border-bottom:4px solid #622a9a;
 }
 #close-menu{
     color:white;
@@ -183,4 +195,61 @@ padding-left:30px;
     height: 40px;
     position: absolute;
     bottom: 0;
+}
+.modals{
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index: 5;
+    background-color:rgba(0,0,0,.8);
+    display:none;
+}
+.modals.active{
+    display: block;
+}
+/*full-size only*/
+.modals .modal-container{
+    margin-top:20vh;
+    height: 40vh;
+    background-color:#622a9a;
+    padding-left:0;
+    padding-right:0;
+    overflow: hidden;
+}
+.modals .modal-container .modal-left-img{
+    display: inline-block;
+    height:100%;
+    width:40%;
+    float: left;
+}
+.modals .modal-container .modal-left-img img{
+height:100%;
+width:100%;
+}
+.modals .modal-container .modal-text-box{
+    overflow-y:scroll;
+    display: inline-block;
+    float: right;
+    width:60%;
+    font-size:24px;
+    height:100%;
+    color: white;
+    padding-left:1em;
+    padding-top: 1em;
+}
+.modal-close{
+    background-color:black;
+    border-radius: 100%;
+    color:white;
+    font-size:44px;
+    height:60px;
+    width:60px;
+    position: absolute;
+    top: 0;
+    right:0;
+        padding-left: .3em;
+    padding-top: .2em;
+    cursor: pointer;
 }

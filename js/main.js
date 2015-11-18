@@ -411,6 +411,7 @@ $(window).ready(function() {
     var cats = $('a.cat-button');
 
 //init
+function init(){
     $('#photo-gallery .img-container').isotope({
         // options
         itemSelector: 'img',
@@ -420,6 +421,7 @@ $(window).ready(function() {
             gutter: 20
         }
     });
+}
 //functions
     cats.on('click', catClass);
     $('#menu-button').on('click', openMenu);
@@ -500,4 +502,5 @@ $(window).ready(function() {
 			$("#" +target).css("display","block")
 		}
 	});
+	init();
 });
